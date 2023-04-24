@@ -1,3 +1,4 @@
+export { ControllerBase } from './ControllerBase';
 export { AdminController } from './AdminController';
 export { ChatController } from './ChatController';
 export { CommandController } from './CommandController';
