@@ -4,6 +4,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "type": "commonjs",
+  "access": "public",
   "scripts": {
     "build": "npx tsc",
     "lint": "npx eslint ./src/ --fix",
