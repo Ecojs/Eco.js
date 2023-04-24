@@ -1,17 +1,19 @@
-import { AdminController } from './Controllers/AdminController';
-import { ChatController } from './Controllers/ChatController';
-import { CommandController } from './Controllers/CommandController';
-import { DataExportController } from './Controllers/DataExportController'
-import { ElectionController } from './Controllers/ElectionController';
-import { LawController } from './Controllers/LawController';
-import { LogController } from './Controllers/LogController';
-import { MapController } from './Controllers/MapController'
-import { PluginsController } from './Controllers/PluginsController';
-import { ProfilingResultsController } from './Controllers/ProfilingResultsController';
-import { RootController } from './Controllers/RootController';
-import { StatsController } from './Controllers/StatsController';
-import { UsersController } from './Controllers/UsersController';
-import { WorldLayerController } from './Controllers/WorldLayerController';
+import {
+  AdminController,
+  ChatController,
+  CommandController,
+  DataExportController,
+  ElectionController,
+  LawController,
+  LogController,
+  MapController,
+  PluginsController,
+  ProfilingResultsController,
+  RootController,
+  StatsController,
+  UsersController,
+  WorldLayerController
+} from './Controllers/';
 
 /**
  * API Container
