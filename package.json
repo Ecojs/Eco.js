@@ -40,5 +40,8 @@
     "url": "https://github.com/afocommunity/eco.js/issues"
   },
   "homepage": "https://github.com/afocommunity/eco.js#readme",
-  "description": "An RCON Interface for ECO"
+  "description": "An RCON Interface for ECO",
+  "dependencies": {
+    "@afocommunity/eco-rcon": "^0.0.1"
+  }
 }
