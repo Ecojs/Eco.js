@@ -1,7 +1,7 @@
 import ECO from '../ECO';
-import { BaseController } from './BaseController';
+import { ControllerBase } from './ControllerBase';
 
-export class DataExportController extends BaseController {
+export class DataExportController extends ControllerBase {
   constructor(client: ECO) {
     super(client)
   }
