@@ -13,6 +13,9 @@ import { StatsController } from './Controllers/StatsController';
 import { UsersController } from './Controllers/UsersController';
 import { WorldLayerController } from './Controllers/WorldLayerController';
 
+/**
+ * API Container
+ */
 export default class ECO {
   private HttpClient: unknown;
   public controllers = {
