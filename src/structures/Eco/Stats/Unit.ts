@@ -1,0 +1,15 @@
+export enum Unit {
+  Organisms = 'Organisms',
+  Population = 'Population',
+  ActionsPerHour = 'ActionsPerHour',
+  CO2PPM = 'CO2PPM',
+  Citizens = 'Citizens',
+  Count = 'Count',
+  CurrencyAmount = 'CurrencyAmount',
+  PPM = 'PPM',
+  Meters = 'Meters',
+  Celsius = 'Celsius',
+  Units = 'Units',
+  Percent = 'Percent',
+  SkillPoints = 'SkillPoints',
+}
