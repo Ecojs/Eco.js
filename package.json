@@ -1,0 +1,43 @@
+{
+  "name": "@afocommunity/eco.js",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "build": "npx tsc",
+    "lint": "npx eslint ./src/ --fix",
+    "document": "npx typedoc ./src/index.ts --includeVersion"
+  },
+  "keywords": [
+    "RCON",
+    "ECO",
+    "API"
+  ],
+  "author": "bombitmanbomb",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.33.0",
+    "prettier": "^2.8.3",
+    "typedoc": "^0.24.4",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afocommunity/eco.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/afocommunity/eco.js/issues"
+  },
+  "homepage": "https://github.com/afocommunity/eco.js#readme",
+  "description": "An RCON Interface for ECO"
+}
