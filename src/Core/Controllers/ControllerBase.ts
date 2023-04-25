@@ -1,13 +1,14 @@
 import ECO from '../ECO';
 
-type Constructable<T> = { new(data: any): T }
-
 export class ControllerBase {
-  constructor(public client: ECO) { }
-  public async GET<T extends (Constructable<T> | null)>(ResponseClass: T, path: string): Promise<T> {
-    return null as unknown as T
+  protected client!: ECO
+  constructor(client: ECO) {
+    Object.defineProperty(this, 'client', { value: client, enumerable: false })
   }
-  public async POST<T extends (Constructable<T> | null)>(ResponseClass: T, path: string, body: any): Promise<T> {
-    return null as unknown as T
+  public async GET<T extends ({ new(props: any): T } | undefined)>(path: string, constructor: T): Promise<T> {
+    return this.client.HttpClient.GET(path, constructor)
+  }
+  public async POST<T extends ({ new(props: any): T } | undefined)>(path: string, body: any, constructor?: T): Promise<T> {
+    return this.client.HttpClient.POST(path, body, constructor)
   }
 }
