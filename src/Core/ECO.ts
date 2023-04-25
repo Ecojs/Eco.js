@@ -14,12 +14,23 @@ import {
   UsersController,
   WorldLayerController
 } from './Controllers/';
-
+import { HttpClient } from './HttpClient';
+type EcoClientOptions = {
+  /**
+   * Your API key
+   */
+  api_key?: string
+  /**
+   * Your Eco Server Address + port
+   * @example 'http://127.0.0.1:3001'
+   */
+  base_url?: string
+}
 /**
  * API Container
  */
 export default class ECO {
-  private HttpClient: unknown;
+  public HttpClient: HttpClient;
   public controllers = {
     Admin: new AdminController(this),
     Chat: new ChatController(this),
@@ -35,5 +46,11 @@ export default class ECO {
     Stats: new StatsController(this),
     Users: new UsersController(this),
     WorldLayer: new WorldLayerController(this)
+  }
+  constructor(options: EcoClientOptions){
+    this.HttpClient = new HttpClient({
+      base_url: options.base_url,
+      api_key: options.api_key
+    })
   }
 }
