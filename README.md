@@ -7,18 +7,18 @@
 
 Eco.js is a full WebAPI Interface for ECO GameServers.
 
-# Installation
+# Installation (Package Name Pending)
 
 NPM
 
 ```bash
-npm install @afocommunity/eco.js
+npm install eco.js
 ```
 
 YARN
 
 ```bash
-yarn add @afocommunity/eco.js
+yarn add eco.js
 ```
 
 # Documentation
@@ -30,7 +30,7 @@ Documentation can be found [HERE](https://afocommunity.github.io/eco.js/modules.
 # Usage
 
 ```ts
-import { ECO } from '@afocommunity/eco.js';
+import { ECO } from 'eco.js';
 //TODO: Write Example
 
 ```
