@@ -1,3 +1,5 @@
+import ECO from '../../../Core/ECO';
+import { ClientObjectBase } from '../../ClientObjectBase';
 import { IKey, Key } from './Key';
 
 export interface IGraph {
@@ -5,12 +7,13 @@ export interface IGraph {
   TimeMin: number
   TimeMax: number
 }
-export class Graph implements IGraph {
+export class Graph extends ClientObjectBase implements IGraph {
   public Keys?: Key[]
   public TimeMin: number
   public TimeMax: number
-  constructor($b: IGraph = {} as IGraph) {
-    this.Keys = $b.Keys ? $b.Keys.map(val => new Key(val)) : []
+  constructor(client: ECO, $b: IGraph = {} as IGraph) {
+    super(client)
+    this.Keys = $b.Keys ? $b.Keys.map(val => new Key(this.client, val)) : []
     this.TimeMin = $b.TimeMin
     this.TimeMax = $b.TimeMax
   }

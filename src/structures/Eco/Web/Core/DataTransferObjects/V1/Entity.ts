@@ -1,15 +1,18 @@
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
 import { IVector3, Vector3 } from '../../../../../System/Numerics/Vector3';
 
 export interface IEntity {
-  Position: Vector3
+  Position: IVector3
   EntityType?: string
 }
 
-export class Entity implements IEntity {
-  public Position: IVector3;
+export class Entity extends ClientObjectBase implements IEntity {
+  public Position: Vector3;
   public EntityType?: string
-  constructor($b: IEntity = {} as IEntity){
-    this.Position = new Vector3($b.Position)
+  constructor(client: ECO, $b: IEntity = {} as IEntity) {
+    super(client)
+    this.Position = new Vector3(this.client, $b.Position)
     this.EntityType = $b.EntityType
   }
 }

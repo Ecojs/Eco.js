@@ -4,6 +4,8 @@ import { ElectionComment, IElectionComment } from './ElectionComment';
 import { ElectionResults, IElectionResults } from './ElectionResults';
 import { ElectionProcess, IElectionProcess } from './ElectionProcess';
 import { ElectedTitle, IElectedTitle } from './ElectedTitle';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import ECO from '../../../../../../Core/ECO';
 
 export interface IGameServerElection {
   Choices?: IElectionChoice[]
@@ -28,7 +30,7 @@ export interface IGameServerElection {
   State?: string
   Creator?: string
 }
-export class GameServerElection implements IGameServerElection {
+export class GameServerElection extends ClientObjectBase implements IGameServerElection {
   public Choices?: ElectionChoice[]
   public TotalVotes: number
   public TimeEnd: number
@@ -50,8 +52,9 @@ export class GameServerElection implements IGameServerElection {
   public UserDescription?: string
   public State?: string
   public Creator?: string
-  constructor($b: IGameServerElection = {} as IGameServerElection) {
-    this.Choices = $b.Choices ? $b.Choices.map(value => new ElectionChoice(value)) : []
+  constructor(client: ECO, $b: IGameServerElection = {} as IGameServerElection) {
+    super(client)
+    this.Choices = $b.Choices ? $b.Choices.map(value => new ElectionChoice(this.client, value)) : []
     this.TotalVotes = $b.TotalVotes
     this.TimeEnd = $b.TimeEnd
     this.TimeEndAgo = $b.TimeEndAgo
@@ -60,10 +63,10 @@ export class GameServerElection implements IGameServerElection {
     this.Finished = $b.Finished
     this.Passed = $b.Passed
     this.PendingVote = $b.PendingVote
-    this.Comments = $b.Comments ? $b.Comments.map(value => new ElectionComment(value)) : []
-    this.Results = new ElectionResults($b.Results)
-    this.ElectionProcess = new ElectionProcess($b.ElectionProcess)
-    this.PositionForWinner = new ElectedTitle($b.PositionForWinner)
+    this.Comments = $b.Comments ? $b.Comments.map(value => new ElectionComment(this.client, value)) : []
+    this.Results = new ElectionResults(this.client, $b.Results)
+    this.ElectionProcess = new ElectionProcess(this.client, $b.ElectionProcess)
+    this.PositionForWinner = new ElectedTitle(this.client, $b.PositionForWinner)
     this.BooleanElection = $b.BooleanElection
     this.Id = $b.Id
     this.Name = $b.Name

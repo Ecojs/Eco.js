@@ -1,3 +1,5 @@
+import ECO from '../../../../../../../Core/ECO'
+import { ClientObjectBase } from '../../../../../../ClientObjectBase'
 import { Color, IColor } from '../../../../../Shared/Utils/Color'
 
 export interface ILayerInput {
@@ -6,11 +8,12 @@ export interface ILayerInput {
   DoubleEnded: boolean
 }
 
-export class LayerInput implements ILayerInput {
+export class LayerInput extends ClientObjectBase implements ILayerInput {
   public Name?: string
   public Color: Color
   public DoubleEnded: boolean
-  constructor($b: ILayerInput = {} as ILayerInput){
+  constructor(client: ECO, $b: ILayerInput = {} as ILayerInput) {
+    super(client)
     this.Name = $b.Name
     this.Color = new Color($b.Color)
     this.DoubleEnded = $b.DoubleEnded

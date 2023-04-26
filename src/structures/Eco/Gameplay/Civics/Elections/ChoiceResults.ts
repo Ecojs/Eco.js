@@ -1,3 +1,6 @@
+import ECO from '../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../ClientObjectBase';
+
 export interface IChoiceResults {
   ChoiceID: number;
   MarkedUpNameString?: string
@@ -6,13 +9,14 @@ export interface IChoiceResults {
   readonly SimpleResultVotes: number
 }
 
-export class ChoiceResults implements IChoiceResults {
+export class ChoiceResults extends ClientObjectBase implements IChoiceResults {
   public ChoiceID: number;
   public MarkedUpNameString?: string
   public VotesPerRound?: number[]
   public readonly Votes: number;
   public readonly SimpleResultVotes: number
-  constructor($b: IChoiceResults = {} as IChoiceResults) {
+  constructor(client: ECO, $b: IChoiceResults = {} as IChoiceResults) {
+    super(client)
     this.ChoiceID = $b.ChoiceID;
     this.MarkedUpNameString = $b.MarkedUpNameString;
     this.VotesPerRound = $b.VotesPerRound;

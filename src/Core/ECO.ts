@@ -1,3 +1,4 @@
+import { ServerInfo } from '../structures/Eco/Shared/Networking/ServerInfo';
 import {
   AdminController,
   ChatController,
@@ -13,7 +14,7 @@ import {
   StatsController,
   UsersController,
   WorldLayerController
-} from './Controllers/';
+} from './Controllers/index';
 import { HttpClient } from './HttpClient';
 type EcoClientOptions = {
   /**
@@ -25,32 +26,48 @@ type EcoClientOptions = {
    * @example 'http://127.0.0.1:3001'
    */
   base_url?: string
+  /**
+   * Time in ms between core data updates
+   */
+  serverInfoUpdateInterval?: number
+  /**
+   * Time in ms between Chat polling requests
+   */
+  serverChatUpdateInterval?: number
 }
 /**
  * API Container
  */
 export default class ECO {
   public HttpClient: HttpClient;
-  public controllers = {
-    Admin: new AdminController(this),
-    Chat: new ChatController(this),
-    Command: new CommandController(this),
-    DataExport: new DataExportController(this),
-    Election: new ElectionController(this),
-    Law: new LawController(this),
-    Log: new LogController(this),
-    Map: new MapController(this),
-    Plugins: new PluginsController(this),
-    ProfilingResults: new ProfilingResultsController(this),
-    Root: new RootController(this),
-    Stats: new StatsController(this),
-    Users: new UsersController(this),
-    WorldLayer: new WorldLayerController(this)
-  }
-  constructor(options: EcoClientOptions){
-    this.HttpClient = new HttpClient({
+  public Admin = new AdminController(this)
+  public Chat = new ChatController(this)
+  public Command = new CommandController(this)
+  public DataExport = new DataExportController(this)
+  public Election = new ElectionController(this)
+  public Law = new LawController(this)
+  public Log = new LogController(this)
+  public Map = new MapController(this)
+  public Plugins = new PluginsController(this)
+  public ProfilingResults = new ProfilingResultsController(this)
+  public Root = new RootController(this)
+  public Stats = new StatsController(this)
+  public Users = new UsersController(this)
+  public WorldLayer = new WorldLayerController(this)
+  public server_info!: ServerInfo
+  public isReady: Promise<void>
+  constructor(options: EcoClientOptions) {
+    this.HttpClient = new HttpClient(this, {
       base_url: options.base_url,
       api_key: options.api_key
     })
+    this.isReady = new Promise((async (res: (value: void | PromiseLike<void>) => void, rej: (reason?: any) => void) => {
+      this.Root.info().then(info => {
+        this.server_info = info
+
+        //Finished
+        res();
+      })
+    }).bind(this))
   }
 }

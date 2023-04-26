@@ -1,3 +1,6 @@
+import ECO from '../../../../Core/ECO'
+import { ClientObjectBase } from '../../../ClientObjectBase'
+
 export interface IVector2i {
   x: number
   y: number
@@ -8,7 +11,7 @@ export interface IVector2i {
   readonly NeighborsAdjacent?: unknown[] //TODO: Figure Out Structure
   readonly NeighborsDiagonal?: unknown[] //TODO: Figure Out Structure
 }
-export class Vector2i implements IVector2i {
+export class Vector2i extends ClientObjectBase implements IVector2i {
   public x: number
   public y: number
   public readonly Length: number
@@ -17,7 +20,8 @@ export class Vector2i implements IVector2i {
   public readonly Area: number
   public readonly NeighborsAdjacent?: unknown[]
   public readonly NeighborsDiagonal?: unknown[]
-  constructor($b: IVector2i = {} as IVector2i) {
+  constructor(client: ECO, $b: IVector2i = {} as IVector2i) {
+    super(client)
     this.x = $b.x
     this.y = $b.y
     this.Length = $b.Length

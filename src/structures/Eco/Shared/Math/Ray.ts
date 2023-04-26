@@ -1,3 +1,5 @@
+import ECO from '../../../../Core/ECO';
+import { ClientObjectBase } from '../../../ClientObjectBase';
 import { Direction } from './Direction';
 import { IVector3i, Vector3i } from './Vector3i';
 
@@ -7,16 +9,17 @@ export interface IRay {
   FirstPos: IVector3i
   FirstRay: unknown //TODO: Figure Out Structure
 }
-export class Ray implements IRay {
+export class Ray extends ClientObjectBase implements IRay {
   public Pos: Vector3i
   Dir: Direction
   FirstPos: Vector3i;
   FirstRay: unknown;
 
-  constructor($b: IRay = {} as IRay) {
-    this.Pos = $b.Pos
+  constructor(client: ECO, $b: IRay = {} as IRay) {
+    super(client)
+    this.Pos = new Vector3i(this.client, $b.Pos)
     this.Dir = $b.Dir
-    this.FirstPos = new Vector3i($b.FirstPos);
+    this.FirstPos = new Vector3i(this.client, $b.FirstPos);
     this.FirstRay = $b.FirstRay
   }
 }
