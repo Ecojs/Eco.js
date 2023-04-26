@@ -34,11 +34,16 @@ type EcoClientOptions = {
    * Time in ms between Chat polling requests
    */
   serverChatUpdateInterval?: number;
+  /**
+   *
+   */
+  serverVirtualPlayerName?: string;
 };
 /**
  * API Container
  */
 export default class ECO {
+  public serverVirtualPlayerName: string;
   public HttpClient: HttpClient;
   public Admin = new AdminController(this);
   public Chat = new ChatController(this);
@@ -57,14 +62,14 @@ export default class ECO {
   public server_info!: ServerInfo;
   public isReady: Promise<void>;
   constructor(options: EcoClientOptions) {
+    this.serverVirtualPlayerName =
+      options.serverVirtualPlayerName ?? "[Server]";
     this.HttpClient = new HttpClient(this, {
       base_url: options.base_url,
       api_key: options.api_key,
     });
     this.isReady = new Promise(
-      (async (
-        res: (value: void | PromiseLike<void>) => void,
-      ) => {
+      (async (res: (value: void | PromiseLike<void>) => void) => {
         this.Root.info().then((info) => {
           this.server_info = info;
 
