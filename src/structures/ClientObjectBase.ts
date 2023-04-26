@@ -1,8 +1,8 @@
-import ECO from '../Core/ECO';
+import ECO from "../Core/ECO";
 
 export class ClientObjectBase {
-  protected client!: ECO
+  protected client!: ECO;
   constructor(client: ECO) {
-    Object.defineProperty(this, 'client', { value: client, enumerable: false })
+    Object.defineProperty(this, "client", { value: client, enumerable: false });
   }
 }

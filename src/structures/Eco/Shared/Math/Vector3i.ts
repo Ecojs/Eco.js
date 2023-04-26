@@ -1,5 +1,5 @@
-import ECO from '../../../../Core/ECO';
-import { ClientObjectBase } from '../../../ClientObjectBase';
+import ECO from "../../../../Core/ECO";
+import { ClientObjectBase } from "../../../ClientObjectBase";
 
 export interface IVector3i {
   x: number;
@@ -12,7 +12,7 @@ export class Vector3i extends ClientObjectBase implements IVector3i {
   public y: number;
   public z: number;
   constructor(client: ECO, $b: IVector3i = {} as IVector3i) {
-    super(client)
+    super(client);
     this.x = $b.x;
     this.y = $b.y;
     this.z = $b.z;
