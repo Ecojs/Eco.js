@@ -64,12 +64,9 @@ export class ChatController extends ControllerBase {
   /**
    * Send a message to a Channel or User
    */
-  public sendMessage(receiver: string | IUser, sender: string | IUser, text: string): Promise<unknown>
+  public sendMessage(receiver: string | IUser, username: string | IUser, text: string): Promise<unknown>
   public sendMessage(receiver: string | IUser, sender?: string | IUser, text?: string): Promise<unknown> {
-    let channel = (receiver as IUser)?.Name ?? receiver as string
-    if (channel.charAt(0) != '#' && channel.charAt(0) != '@') {
-      channel = `@${channel}`
-    }
+    let channel = encodeURIComponent((receiver as IUser)?.Name ?? receiver as string)
     let sendingUser = encodeURIComponent((sender as IUser)?.Name ?? sender as string)
     let message = encodeURIComponent(text as string)
 
