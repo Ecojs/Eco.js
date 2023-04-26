@@ -62,10 +62,7 @@ export default class ECO {
       api_key: options.api_key,
     });
     this.isReady = new Promise(
-      (async (
-        res: (value: void | PromiseLike<void>) => void,
-        rej: (reason?: any) => void
-      ) => {
+      (async (res: (value: void | PromiseLike<void>) => void) => {
         this.Root.info().then((info) => {
           this.server_info = info;
 

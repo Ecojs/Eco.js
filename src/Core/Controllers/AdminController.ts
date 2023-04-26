@@ -1,11 +1,3 @@
-import {
-  AdminReturnModel,
-  IAdminReturnModel,
-} from "../../structures/Eco/WebServer/Web/Models/AdminReturnModel";
-import {
-  ExportGameModel,
-  IExportGameModel,
-} from "../../structures/Eco/WebServer/Web/Models/ExportGameModel";
 import ECO from "../ECO";
 import { ControllerBase } from "./ControllerBase";
 
