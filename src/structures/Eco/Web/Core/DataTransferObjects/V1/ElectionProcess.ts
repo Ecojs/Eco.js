@@ -1,3 +1,5 @@
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
 import { ILocString, LocString } from '../../../../Shared/Localization/LocString';
 
 export interface IElectionProcess {
@@ -10,7 +12,7 @@ export interface IElectionProcess {
   Creator?: string
 }
 
-export class ElectionProcess implements IElectionProcess {
+export class ElectionProcess extends ClientObjectBase implements IElectionProcess {
   public Table?: ILocString[]
   public OccupantNames?: string[]
   public Id: number;
@@ -18,8 +20,9 @@ export class ElectionProcess implements IElectionProcess {
   public UserDescription?: string
   public State?: string
   public Creator?: string
-  constructor($b: IElectionProcess = {} as IElectionProcess) {
-    this.Table = $b.Table ? $b.Table.map(value=> new LocString(value)) : []
+  constructor(client: ECO, $b: IElectionProcess = {} as IElectionProcess) {
+    super(client)
+    this.Table = $b.Table ? $b.Table.map(value => new LocString(this.client, value)) : []
     this.OccupantNames = $b.OccupantNames ?? []
     this.Id = $b.Id
     this.Name = $b.Name

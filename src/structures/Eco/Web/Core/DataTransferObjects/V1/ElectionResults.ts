@@ -1,3 +1,5 @@
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
 import { ChoiceResults, IChoiceResults } from '../../../../Gameplay/Civics/Elections/ChoiceResults';
 
 export interface IElectionResults {
@@ -8,14 +10,15 @@ export interface IElectionResults {
   Finished: boolean
 }
 
-export class ElectionResults implements IElectionResults {
+export class ElectionResults extends ClientObjectBase implements IElectionResults {
   public ChoiceRanks?: ChoiceResults[]
   public TotalVotesForWinner: number;
   public Winners?: string[]
   public Results?: string
   public Finished: boolean;
-  constructor($b: IElectionResults = {} as IElectionResults){
-    this.ChoiceRanks = $b.ChoiceRanks ? $b.ChoiceRanks.map(value => new ChoiceResults(value)):[]
+  constructor(client: ECO, $b: IElectionResults = {} as IElectionResults) {
+    super(client)
+    this.ChoiceRanks = $b.ChoiceRanks ? $b.ChoiceRanks.map(value => new ChoiceResults(this.client, value)) : []
     this.TotalVotesForWinner = $b.TotalVotesForWinner
     this.Winners = $b.Winners ?? []
     this.Results = $b.Results

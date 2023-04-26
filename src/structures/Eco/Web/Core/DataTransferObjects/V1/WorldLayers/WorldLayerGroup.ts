@@ -1,3 +1,5 @@
+import ECO from '../../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../../ClientObjectBase';
 import { IWorldLayer, WorldLayer } from './WorldLayer';
 
 export interface IWorldLayerGroup {
@@ -5,11 +7,12 @@ export interface IWorldLayerGroup {
   List?: IWorldLayer[]
 }
 
-export class WorldLayerGroup implements IWorldLayerGroup {
+export class WorldLayerGroup extends ClientObjectBase implements IWorldLayerGroup {
   public Category?: string
   public List?: WorldLayer[]
-  constructor($b: IWorldLayerGroup = {} as IWorldLayerGroup) {
+  constructor(client: ECO, $b: IWorldLayerGroup = {} as IWorldLayerGroup) {
+    super(client)
     this.Category = $b.Category
-    this.List = $b.List ? $b.List.map(value => new WorldLayer(value)) : []
+    this.List = $b.List ? $b.List.map(value => new WorldLayer(this.client, value)) : []
   }
 }

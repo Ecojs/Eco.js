@@ -1,3 +1,6 @@
+import ECO from '../../../../../../../Core/ECO'
+import { ClientObjectBase } from '../../../../../../ClientObjectBase'
+
 export interface IWorldLayer {
   LayerName?: string
   LayerDisplayName?: string
@@ -7,14 +10,15 @@ export interface IWorldLayer {
   DisplayRow: number
 }
 
-export class WorldLayer implements IWorldLayer {
+export class WorldLayer extends ClientObjectBase implements IWorldLayer {
   public LayerName?: string
   public LayerDisplayName?: string
   public Summary?: string
   public Tooltip?: string
   public Category?: string
   public DisplayRow: number
-  constructor($b: IWorldLayer = {} as IWorldLayer){
+  constructor(client: ECO, $b: IWorldLayer = {} as IWorldLayer) {
+    super(client)
     this.LayerName = $b.LayerName
     this.LayerDisplayName = $b.LayerDisplayName
     this.Summary = $b.Summary

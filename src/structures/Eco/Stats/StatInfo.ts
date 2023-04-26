@@ -1,3 +1,5 @@
+import ECO from '../../../Core/ECO'
+import { ClientObjectBase } from '../../ClientObjectBase'
 import { StatType } from './StatType'
 
 export interface IStatInfo {
@@ -17,7 +19,7 @@ export interface IStatInfo {
   readonly IsAggregatable: boolean
   readonly TimeKey?: string
 }
-export class StatInfo implements IStatInfo {
+export class StatInfo extends ClientObjectBase implements IStatInfo {
   public Name?: string
   public DisplayName?: string
   public Unit?: string
@@ -33,7 +35,8 @@ export class StatInfo implements IStatInfo {
   public readonly IsAction: boolean
   public readonly IsAggregatable: boolean
   public readonly TimeKey?: string
-  constructor($b: IStatInfo = {} as IStatInfo) {
+  constructor(client: ECO, $b: IStatInfo = {} as IStatInfo) {
+    super(client)
     this.Name = $b.Name
     this.DisplayName = $b.DisplayName
     this.Unit = $b.Unit

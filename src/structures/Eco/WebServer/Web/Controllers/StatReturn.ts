@@ -1,3 +1,6 @@
+import ECO from '../../../../../Core/ECO'
+import { ClientObjectBase } from '../../../../ClientObjectBase'
+
 export interface IStatReturn {
   Times?: number[]
   Values?: number[]
@@ -5,12 +8,13 @@ export interface IStatReturn {
   Unit?: string
 }
 
-export class StatReturn implements IStatReturn {
+export class StatReturn extends ClientObjectBase implements IStatReturn {
   public Times?: number[]
   public Values?: number[]
   public Interval: number
   public Unit?: string
-  constructor($b: IStatReturn = {} as IStatReturn) {
+  constructor(client: ECO, $b: IStatReturn = {} as IStatReturn) {
+    super(client)
     this.Times = $b.Times ?? []
     this.Values = $b.Values ?? []
     this.Interval = $b.Interval

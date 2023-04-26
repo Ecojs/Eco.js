@@ -1,3 +1,5 @@
+import ECO from '../../../../../../Core/ECO'
+import { ClientObjectBase } from '../../../../../ClientObjectBase'
 import { IMap } from './Map'
 
 export interface ICivicAction {
@@ -8,14 +10,15 @@ export interface ICivicAction {
   DistrictMapBefore: IMap
   DistrictMapAfter: IMap
 }
-export class CivicAction implements ICivicAction {
+export class CivicAction extends ClientObjectBase implements ICivicAction {
   public ActionOnComplete?: string
   public ActionOnCompleteTableHeader?: string
   public ActionOnCompleteTable?: unknown[] //TODO: Figure Out Structure
   public ActionOnCompleteFullDescription?: string
   public DistrictMapBefore: IMap
   public DistrictMapAfter: IMap
-  constructor($b: ICivicAction = {} as ICivicAction) {
+  constructor(client: ECO, $b: ICivicAction = {} as ICivicAction) {
+    super(client)
     this.ActionOnComplete = $b.ActionOnComplete
     this.ActionOnCompleteTableHeader = $b.ActionOnCompleteTableHeader
     this.ActionOnCompleteTable = $b.ActionOnCompleteTable

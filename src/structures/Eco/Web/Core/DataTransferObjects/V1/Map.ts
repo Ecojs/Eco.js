@@ -1,3 +1,5 @@
+import ECO from '../../../../../../Core/ECO'
+import { ClientObjectBase } from '../../../../../ClientObjectBase'
 import { IVector3, Vector3 } from './Vector3'
 
 export interface IMap {
@@ -12,7 +14,7 @@ export interface IMap {
   camPos: IVector3
 }
 
-export class Map implements IMap {
+export class Map extends ClientObjectBase implements IMap {
   public layerSelected?: string
   public frame: number
   public timeStart: number
@@ -22,7 +24,8 @@ export class Map implements IMap {
   public flat: boolean
   public pause: boolean
   public camPos: Vector3
-  constructor($b: IMap = {} as IMap) {
+  constructor(client: ECO, $b: IMap = {} as IMap) {
+    super(client)
     this.layerSelected = $b.layerSelected
     this.frame = $b.frame
     this.timeStart = $b.timeStart
@@ -31,6 +34,6 @@ export class Map implements IMap {
     this.currentTime = $b.currentTime
     this.flat = $b.flat
     this.pause = $b.pause
-    this.camPos = $b.camPos
+    this.camPos = new Vector3(this.client, $b.camPos)
   }
 }

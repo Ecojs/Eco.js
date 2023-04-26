@@ -1,3 +1,5 @@
+import ECO from '../../../Core/ECO';
+import { ClientObjectBase } from '../../ClientObjectBase';
 import { Unit } from './Unit';
 
 export interface IKey {
@@ -6,12 +8,13 @@ export interface IKey {
   UnitDisplayName?: string
   DisplayName?: string
 }
-export class Key implements IKey {
+export class Key extends ClientObjectBase implements IKey {
   public Unit: Unit;
   public Value?: string
   public UnitDisplayName?: string
   public DisplayName?: string
-  constructor($b: IKey = {} as IKey) {
+  constructor(client: ECO, $b: IKey = {} as IKey) {
+    super(client)
     this.Unit = $b.Unit;
     this.Value = $b.Value
     this.UnitDisplayName = $b.UnitDisplayName

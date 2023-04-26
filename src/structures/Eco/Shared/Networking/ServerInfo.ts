@@ -1,3 +1,5 @@
+import ECO from '../../../../Core/ECO'
+import { ClientObjectBase } from '../../../ClientObjectBase'
 import { ServerCategory } from '../States/ServerCategory'
 import { SkillSpecializationSetting } from './SkillSpecializationSetting'
 
@@ -44,49 +46,61 @@ export interface IServerInfo {
   Access?: string
   readonly JoinUrl?: string
 }
-export class ServerInfo implements IServerInfo {
-  public Id: string
+export class ServerInfo extends ClientObjectBase implements IServerInfo {
+  public Id!: string
   public Name?: string
   public Address?: string
-  public External: boolean
-  public GamePort: number
-  public WebPort: number
-  public IsLAN: boolean
+  public External!: boolean
+  public GamePort!: number
+  public WebPort!: number
+  public IsLAN!: boolean
   public Description?: string
   public DetailedDescription?: string
-  public Category: ServerCategory
-  public OnlinePlayers: number
-  public OnlinePlayersNames?: string[]
-  public AdminOnline: boolean
-  public TimeSinceStart: number
-  public TimeLeft: number
-  public Animals: number
-  public Plants: number
-  public Laws: number
+  public Category!: ServerCategory
+  public OnlinePlayers!: number
+  public OnlinePlayersNames?: string[] = []
+  public AdminOnline!: boolean
+  public TimeSinceStart!: number
+  public TimeLeft!: number
+  public Animals!: number
+  public Plants!: number
+  public Laws!: number
   public WorldSize?: string
   public Version?: string
   public EconomyDesc?: string
   public SkillSpecialization?: string
-  public SkillSpecializationSetting: SkillSpecializationSetting
+  public SkillSpecializationSetting!: SkillSpecializationSetting
   public WorldObjective?: string
   public Language?: string
-  public HasPassword: boolean
-  public HasMeteor: boolean
+  public HasPassword!: boolean
+  public HasMeteor!: boolean
   public DistributionStationItems?: string
   public Playtimes?: string
   public DiscordAddress?: string
-  public IsPaused: boolean
-  public ActiveAndOnlinePlayers: number
-  public PeakActivePlayers: number
-  public MaxActivePlayers: number
-  public ShelfLifeMultiplier: number
-  public ExhaustionAfterHours: number
-  public IsLimitingHours: boolean
-  public ServerAchievements?: string[]
+  public IsPaused!: boolean
+  public ActiveAndOnlinePlayers!: number
+  public PeakActivePlayers!: number
+  public MaxActivePlayers!: number
+  public ShelfLifeMultiplier!: number
+  public ExhaustionAfterHours!: number
+  public IsLimitingHours!: boolean
+  public ServerAchievements?: string[] = []
   public RelayAddress?: string
   public Access?: string
   public readonly JoinUrl?: string
-  constructor($b: IServerInfo = {} as IServerInfo) {
+  constructor(client: ECO, $b: IServerInfo = {} as IServerInfo) {
+    super(client)
+    this.JoinUrl = $b.JoinUrl
+    this._updateFields($b);
+  }
+
+  public async update(): Promise<ServerInfo> {
+    const $b = await this.client.Root.rawinfo()
+    this._updateFields($b)
+    return this
+  }
+
+  private _updateFields($b: IServerInfo = {} as IServerInfo) {
     this.Id = $b.Id
     this.Name = $b.Name
     this.Address = $b.Address
@@ -127,6 +141,5 @@ export class ServerInfo implements IServerInfo {
     this.ServerAchievements = $b.ServerAchievements
     this.RelayAddress = $b.RelayAddress
     this.Access = $b.Access
-    this.JoinUrl = $b.JoinUrl
   }
 }

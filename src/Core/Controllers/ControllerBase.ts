@@ -1,14 +1,14 @@
+import { ClientObjectBase } from '../../structures/ClientObjectBase';
 import ECO from '../ECO';
 
-export class ControllerBase {
-  protected client!: ECO
+export class ControllerBase extends ClientObjectBase {
   constructor(client: ECO) {
-    Object.defineProperty(this, 'client', { value: client, enumerable: false })
+    super(client)
   }
-  public async GET<T extends ({ new(props: any): T } | undefined)>(path: string, constructor: T): Promise<T> {
+  protected async GET<T, V>(path: string, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: V) => T)): Promise<T> {
     return this.client.HttpClient.GET(path, constructor)
   }
-  public async POST<T extends ({ new(props: any): T } | undefined)>(path: string, body: any, constructor?: T): Promise<T> {
+  protected async POST<T, V>(path: string, body: any, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: V) => T)): Promise<T> {
     return this.client.HttpClient.POST(path, body, constructor)
   }
 }

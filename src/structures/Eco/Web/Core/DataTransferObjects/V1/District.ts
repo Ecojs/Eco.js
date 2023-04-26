@@ -1,3 +1,6 @@
+import ECO from '../../../../../../Core/ECO'
+import { ClientObjectBase } from '../../../../../ClientObjectBase'
+
 export interface IDistrict {
   ID: number
   Name?: string
@@ -5,13 +8,14 @@ export interface IDistrict {
   G: number
   B: number
 }
-export class District implements IDistrict {
+export class District extends ClientObjectBase implements IDistrict {
   public ID: number
   public Name?: string
   public R: number
   public G: number
   public B: number
-  constructor($b: IDistrict = {} as IDistrict) {
+  constructor(client: ECO, $b: IDistrict = {} as IDistrict) {
+    super(client)
     this.ID = $b.ID
     this.Name = $b.Name
     this.R = $b.R
