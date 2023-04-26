@@ -19,8 +19,8 @@ export class HttpClient extends ClientObjectBase {
   public async GET<T, V>(endpoint: string, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: any) => T)) {
     return this.fetch<T, V>('GET', endpoint, constructor)
   }
-  public async POST<T, V>(endpoint: string, body: any, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: any) => T)) {
-    return this.fetch<T, V>('POST', endpoint, constructor, body)
+  public async POST<T, V, B>(endpoint: string, body: B, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: any) => T)) {
+    return this.fetch<T, V>('POST', endpoint, constructor, JSON.stringify(body))
   }
   public async fetch<T, V>(method: 'GET' | 'POST', endpoint: string, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: V) => T), body?: any): Promise<T> {
     const headers = this.api_key ? { 'X-API-Key': this.api_key } : undefined
