@@ -1,5 +1,5 @@
-import ECO from '../../../../Core/ECO';
-import { ClientObjectBase } from '../../../ClientObjectBase';
+import ECO from "../../../../Core/ECO";
+import { ClientObjectBase } from "../../../ClientObjectBase";
 export interface ILocString {
   readonly NotTranslated?: string;
   readonly Inlineable: boolean;
@@ -10,7 +10,7 @@ export class LocString extends ClientObjectBase implements ILocString {
   public readonly Inlineable: boolean;
   public readonly Length: boolean;
   constructor(client: ECO, $b: ILocString = {} as ILocString) {
-    super(client)
+    super(client);
     this.NotTranslated = $b.NotTranslated;
     this.Inlineable = $b.Inlineable;
     this.Length = $b.Length;
