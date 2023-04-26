@@ -8,7 +8,7 @@ export class ControllerBase extends ClientObjectBase {
   protected async GET<T, V>(path: string, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: V) => T)): Promise<T> {
     return this.client.HttpClient.GET(path, constructor)
   }
-  protected async POST<T, V>(path: string, body: any, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: V) => T)): Promise<T> {
+  protected async POST<T, V, B>(path: string, body: B, constructor?: (new (client: ECO, data: V) => T) | ((client: ECO, data: V) => T)): Promise<T> {
     return this.client.HttpClient.POST(path, body, constructor)
   }
 }
