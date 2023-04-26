@@ -93,7 +93,7 @@ export class ChatController extends ControllerBase {
    */
   public sendMessage(
     receiver: string | IUser,
-    username: string | IUser,
+    sender: string | IUser,
     text: string
   ): Promise<unknown>;
   public sendMessage(

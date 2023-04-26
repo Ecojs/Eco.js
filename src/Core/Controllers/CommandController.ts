@@ -27,16 +27,38 @@ export class CommandController extends ControllerBase {
   public async kick(user: string, reason = "You have been Kicked.") {
     return this.exec(`kick ${user},${reason}`);
   }
-  public async ban(user: string, reason: string = 'You have been Banned', time?: string) {
-    return this.exec(`ban ${user},${reason}${time ? `,${time}`:''}`);
+  public async ban(
+    user: string,
+    reason: string = "You have been Banned",
+    time?: string
+  ) {
+    return this.exec(`ban ${user},${reason}${time ? `,${time}` : ""}`);
   }
-  public async unban(user: string) {
-    return this.exec(`unban ${user}`);
+  public async unban(user: string, reason: string = "You have been Un-muted") {
+    return this.exec(`unban ${user},${reason}`);
   }
-  public async mute(user: string, reason: string = 'You have been Muted.', time?: string) {
-    return this.exec(`mute ${user},${reason}${time ? `,${time}`:''}`);
+  public async mute(
+    user: string,
+    reason: string = "You have been Muted.",
+    time?: string
+  ) {
+    return this.exec(`mute ${user},${reason}${time ? `,${time}` : ""}`);
   }
-  public async unmute(user: string) {
-    return this.exec(`unmute ${user}`);
+  public async unmute(user: string, reason: string = "You have been Un-muted") {
+    return this.exec(`unmute ${user},${reason}`);
+  }
+  public async warn(
+    user: string,
+    text: string,
+    size: number = 1,
+    type: "notification" | "popup" | "okbox" = "notification",
+    addToMail: boolean = false,
+    windowHeader: string = ""
+  ) {
+    return this.exec(
+      `warn ${user},${text},${size},${type == "popup"},${
+        type == "okbox"
+      },${addToMail},${windowHeader}`
+    );
   }
 }
