@@ -27,14 +27,14 @@ export class CommandController extends ControllerBase {
   public async kick(user: string, reason = "You have been Kicked.") {
     return this.exec(`kick ${user},${reason}`);
   }
-  public async ban(user: string, reason: string, time: string) {
-    return this.exec(`ban ${user},${reason},${time}`);
+  public async ban(user: string, reason: string = 'You have been Banned', time?: string) {
+    return this.exec(`ban ${user},${reason}${time ? `,${time}`:''}`);
   }
   public async unban(user: string) {
     return this.exec(`unban ${user}`);
   }
-  public async mute(user: string, reason: string, time: string) {
-    return this.exec(`mute ${user},${reason},${time}`);
+  public async mute(user: string, reason: string = 'You have been Muted.', time?: string) {
+    return this.exec(`mute ${user},${reason}${time ? `,${time}`:''}`);
   }
   public async unmute(user: string) {
     return this.exec(`unmute ${user}`);
