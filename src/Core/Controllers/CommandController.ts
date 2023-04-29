@@ -29,31 +29,31 @@ export class CommandController extends ControllerBase {
   }
   public async ban(
     user: string,
-    reason: string = "You have been Banned",
+    reason = "You have been Banned",
     time?: string
   ) {
     return this.exec(`ban ${user},${reason}${time ? `,${time}` : ""}`);
   }
-  public async unban(user: string, reason: string = "You have been Un-muted") {
+  public async unban(user: string, reason = "You have been Un-muted") {
     return this.exec(`unban ${user},${reason}`);
   }
   public async mute(
     user: string,
-    reason: string = "You have been Muted.",
+    reason = "You have been Muted.",
     time?: string
   ) {
     return this.exec(`mute ${user},${reason}${time ? `,${time}` : ""}`);
   }
-  public async unmute(user: string, reason: string = "You have been Un-muted") {
+  public async unmute(user: string, reason = "You have been Un-muted") {
     return this.exec(`unmute ${user},${reason}`);
   }
   public async warn(
     user: string,
     text: string,
-    size: number = 1,
+    size = 1,
     type: "notification" | "popup" | "okbox" = "notification",
-    addToMail: boolean = false,
-    windowHeader: string = ""
+    addToMail = false,
+    windowHeader = ""
   ) {
     return this.exec(
       `warn ${user},${text},${size},${type == "popup"},${

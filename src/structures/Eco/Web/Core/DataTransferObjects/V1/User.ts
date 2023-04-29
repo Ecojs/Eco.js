@@ -35,10 +35,10 @@ export class User extends ClientObjectBase implements IUser {
   }
   public async warn(
     text: string,
-    size: number = 1,
+    size = 1,
     type: "notification" | "popup" | "okbox" = "notification",
-    addToMail: boolean = false,
-    windowHeader: string = ""
+    addToMail = false,
+    windowHeader = ""
   ) {
     return this.client.Command.warn(
       this.Name,
@@ -50,7 +50,7 @@ export class User extends ClientObjectBase implements IUser {
     );
   }
   public async whisper(text: string, usernameOverride?: string) {
-    return this.client.Chat.sendMessage(
+    return this.client.Chat.sendChat(
       this.Name,
       usernameOverride ?? this.client.serverVirtualPlayerName,
       text

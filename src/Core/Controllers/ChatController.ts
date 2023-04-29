@@ -17,7 +17,7 @@ export class ChatController extends ControllerBase {
    * @param {number} [endDay=-1] The upper bound on the time range. Default is now.
    * @memberof ChatController
    */
-  public getMessages(startDay = 0, endDay = -1) {
+  public getChat(startDay = 0, endDay = -1) {
     return this.GET<ChatMessage[], IChatMessage[]>(
       `/api/v1/chat?startDay=${startDay}&endDay=${endDay}`,
       (c, d) => d.map((v) => new ChatMessage(c, v))
@@ -31,7 +31,7 @@ export class ChatController extends ControllerBase {
    * @param {number} [endDay=-1] The upper bound on the time range. Default is now.
    * @memberof ChatController
    */
-  public getMessagesByTag(tag: string, startDay = 0, endDay = -1) {
+  public getChatByTag(tag: string, startDay = 0, endDay = -1) {
     return this.GET<ChatMessage[], IChatMessage[]>(
       `/api/v1/chat?tag=${encodeURIComponent(
         tag
@@ -47,7 +47,7 @@ export class ChatController extends ControllerBase {
    * @param {number} [endDay=-1] The upper bound on the time range. Default is now.
    * @memberof ChatController
    */
-  public getMessagesByUser(user: string | IUser, startDay = 0, endDay = -1) {
+  public getChatSentBy(user: string | IUser, startDay = 0, endDay = -1) {
     return this.GET<ChatMessage[], IChatMessage[]>(
       `/api/v1/chat?tag=${encodeURIComponent(
         (user as IUser)?.Name ?? (user as string)
@@ -63,7 +63,7 @@ export class ChatController extends ControllerBase {
    * @returns
    * @memberof ChatController
    */
-  public getNextMessages(message: IChatMessage, numNextMessages: number) {
+  public getNext(message: IChatMessage, numNextMessages: number) {
     return this.POST<ChatMessage[], IChatMessage[], IChatMessage>(
       `/api/v1/chat/next?numNextMessages=${numNextMessages}`,
       message,
@@ -78,10 +78,7 @@ export class ChatController extends ControllerBase {
    * @returns
    * @memberof ChatController
    */
-  public getPreviousMessages(
-    message: IChatMessage,
-    numPreviousMessages: number
-  ) {
+  public getPrevious(message: IChatMessage, numPreviousMessages: number) {
     return this.POST<ChatMessage[], IChatMessage[], IChatMessage>(
       `/api/v1/chat/previous?numNextMessages=${numPreviousMessages}`,
       message,
@@ -91,12 +88,12 @@ export class ChatController extends ControllerBase {
   /**
    * Send a message to a Channel or User
    */
-  public sendMessage(
+  public sendChat(
     receiver: string | IUser,
     sender: string | IUser,
     text: string
   ): Promise<unknown>;
-  public sendMessage(
+  public sendChat(
     receiver: string | IUser,
     sender?: string | IUser,
     text?: string

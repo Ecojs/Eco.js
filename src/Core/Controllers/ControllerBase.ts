@@ -5,21 +5,21 @@ export class ControllerBase extends ClientObjectBase {
   constructor(client: ECO) {
     super(client);
   }
-  protected async GET<T, V>(
+  protected async GET<ReturnType, ReturnDTO>(
     path: string,
     constructor?:
-      | (new (client: ECO, data: V) => T)
-      | ((client: ECO, data: V) => T)
-  ): Promise<T> {
+      | (new (client: ECO, data: ReturnDTO) => ReturnType)
+      | ((client: ECO, data: ReturnDTO) => ReturnType)
+  ): Promise<ReturnType> {
     return this.client.HttpClient.GET(path, constructor);
   }
-  protected async POST<T, V, B>(
+  protected async POST<ReturnType, ReturnDTO, Body>(
     path: string,
-    body: B,
+    body: Body,
     constructor?:
-      | (new (client: ECO, data: V) => T)
-      | ((client: ECO, data: V) => T)
-  ): Promise<T> {
+      | (new (client: ECO, data: ReturnDTO) => ReturnType)
+      | ((client: ECO, data: ReturnDTO) => ReturnType)
+  ): Promise<ReturnType> {
     return this.client.HttpClient.POST(path, body, constructor);
   }
 }
