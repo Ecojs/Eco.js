@@ -22,7 +22,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">MapController</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/MapController.ts#L12">Core/Controllers/MapController.ts:12</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L24">Core/Controllers/MapController.ts:24</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -42,8 +42,12 @@
 <a href="MapController.html#POST" class="tsd-index-link tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>POST</span></a>
 <a href="MapController.html#getEntities" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Entities</span></a>
 <a href="MapController.html#getEntityTypes" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Entity<wbr/>Types</span></a>
+<a href="MapController.html#getLayerList" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Layer<wbr/>List</span></a>
 <a href="MapController.html#getMapStats" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Map<wbr/>Stats</span></a>
+<a href="MapController.html#getProperty" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Property</span></a>
 <a href="MapController.html#getWaterLevel" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Water<wbr/>Level</span></a>
+<a href="MapController.html#getWebMapData" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Web<wbr/>Map<wbr/>Data</span></a>
+<a href="MapController.html#getWorldDimension" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>World<wbr/>Dimension</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -60,7 +64,7 @@
 <h4 class="tsd-returns-title">Returns <a href="MapController.html" class="tsd-signature-type tsd-kind-class">MapController</a></h4><aside class="tsd-sources">
 <p>Overrides <a href="ControllerBase.html">ControllerBase</a>.<a href="ControllerBase.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/MapController.ts#L13">Core/Controllers/MapController.ts:13</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L25">Core/Controllers/MapController.ts:25</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="client" class="tsd-anchor"></a>
@@ -68,7 +72,7 @@
 <div class="tsd-signature"><span class="tsd-kind-property">client</span><span class="tsd-signature-symbol">:</span> <a href="ECO.html" class="tsd-signature-type tsd-kind-class">ECO</a></div><aside class="tsd-sources">
 <p>Inherited from <a href="ControllerBase.html">ControllerBase</a>.<a href="ControllerBase.html#client">client</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/structures/ClientObjectBase.ts#L4">structures/ClientObjectBase.ts:4</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/structures/ClientObjectBase.ts#L4">structures/ClientObjectBase.ts:4</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="GET" class="tsd-anchor"></a>
@@ -93,7 +97,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">ReturnType</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="ControllerBase.html">ControllerBase</a>.<a href="ControllerBase.html#GET">GET</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/ControllerBase.ts#L8">Core/Controllers/ControllerBase.ts:8</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/ControllerBase.ts#L8">Core/Controllers/ControllerBase.ts:8</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited"><a id="POST" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagProtected">Protected</code> <span>POST</span><a href="#POST" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected tsd-is-inherited">
@@ -120,15 +124,22 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">ReturnType</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="ControllerBase.html">ControllerBase</a>.<a href="ControllerBase.html#POST">POST</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/ControllerBase.ts#L16">Core/Controllers/ControllerBase.ts:16</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/ControllerBase.ts#L16">Core/Controllers/ControllerBase.ts:16</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getEntities" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Entities</span><a href="#getEntities" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="getEntities.getEntities-1"><span class="tsd-kind-call-signature">get<wbr/>Entities</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Entity</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#getEntities.getEntities-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getEntities.getEntities-1"><span class="tsd-kind-call-signature">get<wbr/>Entities</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">entityTypes</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Entity</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#getEntities.getEntities-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Endpoint not properly set up. Only fetches Players currently</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">entityTypes</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Entity</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/MapController.ts#L22">Core/Controllers/MapController.ts:22</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L37">Core/Controllers/MapController.ts:37</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getEntityTypes" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Entity<wbr/>Types</span><a href="#getEntityTypes" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -136,7 +147,15 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/MapController.ts#L19">Core/Controllers/MapController.ts:19</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L31">Core/Controllers/MapController.ts:31</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getLayerList" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Layer<wbr/>List</span><a href="#getLayerList" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getLayerList.getLayerList-1"><span class="tsd-kind-call-signature">get<wbr/>Layer<wbr/>List</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#getLayerList.getLayerList-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L46">Core/Controllers/MapController.ts:46</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getMapStats" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Map<wbr/>Stats</span><a href="#getMapStats" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -144,7 +163,15 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">MapStats</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/MapController.ts#L16">Core/Controllers/MapController.ts:16</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L28">Core/Controllers/MapController.ts:28</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getProperty" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Property</span><a href="#getProperty" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getProperty.getProperty-1"><span class="tsd-kind-call-signature">get<wbr/>Property</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><a href="#getProperty.getProperty-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L55">Core/Controllers/MapController.ts:55</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getWaterLevel" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Water<wbr/>Level</span><a href="#getWaterLevel" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -152,7 +179,23 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/e79eda0/src/Core/Controllers/MapController.ts#L28">Core/Controllers/MapController.ts:28</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L52">Core/Controllers/MapController.ts:52</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getWebMapData" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Web<wbr/>Map<wbr/>Data</span><a href="#getWebMapData" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getWebMapData.getWebMapData-1"><span class="tsd-kind-call-signature">get<wbr/>Web<wbr/>Map<wbr/>Data</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">MapJson</span><span class="tsd-signature-symbol">&gt;</span><a href="#getWebMapData.getWebMapData-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">MapJson</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L49">Core/Controllers/MapController.ts:49</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="getWorldDimension" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>World<wbr/>Dimension</span><a href="#getWorldDimension" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="getWorldDimension.getWorldDimension-1"><span class="tsd-kind-call-signature">get<wbr/>World<wbr/>Dimension</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Vector3i</span><span class="tsd-signature-symbol">&gt;</span><a href="#getWorldDimension.getWorldDimension-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">Vector3i</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/afocommunity/eco.js/blob/b5abfd8/src/Core/Controllers/MapController.ts#L43">Core/Controllers/MapController.ts:43</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -178,8 +221,12 @@
 <li><a href="#POST" class="tsd-is-protected tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>POST</span></a></li>
 <li><a href="#getEntities" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Entities</span></a></li>
 <li><a href="#getEntityTypes" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Entity<wbr/>Types</span></a></li>
+<li><a href="#getLayerList" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Layer<wbr/>List</span></a></li>
 <li><a href="#getMapStats" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Map<wbr/>Stats</span></a></li>
-<li><a href="#getWaterLevel" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Water<wbr/>Level</span></a></li></ul></div></details></div>
+<li><a href="#getProperty" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Property</span></a></li>
+<li><a href="#getWaterLevel" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Water<wbr/>Level</span></a></li>
+<li><a href="#getWebMapData" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Web<wbr/>Map<wbr/>Data</span></a></li>
+<li><a href="#getWorldDimension" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>World<wbr/>Dimension</span></a></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-4-path"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)" id="icon-4-text"></path></svg><span>@afocommunity/eco.js -<wbr/> v0.0.1</span></a>
 <ul class="tsd-small-nested-navigation">
