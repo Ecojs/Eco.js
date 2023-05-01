@@ -2,6 +2,7 @@ import {
   IPluginInfo,
   PluginInfo,
 } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/PluginInfo";
+import { SimplePluginConfig } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/SimplePluginConfig";
 import {
   IWebPluginInfo,
   WebPluginInfo,
@@ -15,10 +16,26 @@ export class PluginsController extends ControllerBase {
   }
 
   public async getPluginConfig(name: string) {
-    return this.GET<any, any>(`/api/v1/plugins/${name}`);
+    return this.GET<any, any>(
+      `/api/v1/plugins/${name}`,
+      (client, config) => new SimplePluginConfig(client, config, name)
+    );
   }
-  public async setPluginConfig(name: string, config: any) {
-    return this.POST<any, any, any>(`/api/v1/plugins/${name}`, config);
+  public async setPluginConfig(
+    name: string,
+    config: SimplePluginConfig
+  ): Promise<boolean>;
+  public async setPluginConfig(
+    name: string,
+    config: { [key: string]: any }
+  ): Promise<boolean>;
+  public async setPluginConfig(name: string, config: any): Promise<boolean> {
+    return (
+      (await this.POST<any, any, any>(
+        `/api/v1/plugins/${name}`,
+        config instanceof SimplePluginConfig ? config.Config : config
+      )) == 200
+    );
   }
   public async getPlugins() {
     return this.GET<PluginInfo[], IPluginInfo[]>(
