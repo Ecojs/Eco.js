@@ -15,10 +15,10 @@ export class PluginsController extends ControllerBase {
   }
 
   public async getPluginConfig(name: string) {
-    return this.GET<any, any>(`/api/v1/plugins/config/${name}`);
+    return this.GET<any, any>(`/api/v1/plugins/${name}`);
   }
   public async setPluginConfig(name: string, config: any) {
-    return this.POST<any, any, any>(`/api/v1/plugins/config/${name}`, config);
+    return this.POST<any, any, any>(`/api/v1/plugins/${name}`, config);
   }
   public async getPlugins() {
     return this.GET<PluginInfo[], IPluginInfo[]>(
