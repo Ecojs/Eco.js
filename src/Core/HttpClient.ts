@@ -68,12 +68,20 @@ export class HttpClient extends ClientObjectBase {
     if (this.debug) {
       console.info(method, url, body);
       console.info(response.status);
+      console.info(response.headers);
     }
     if (response.ok) {
-      if (response.headers.get("Content-Type")?.includes("text/")) {
+      const contentType = response.headers.get("Content-Type");
+      if (contentType == null) {
+        return response.status as unknown as T;
+      }
+      if (contentType?.includes("text/")) {
         return response.text() as any;
       }
-      const data = await response.json();
+      let data: unknown;
+      try {
+        data = await response.json();
+      } catch (error) {}
       if (constructor != null)
         try {
           return new (constructor as any)(this.client, data);
