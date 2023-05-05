@@ -19,19 +19,19 @@ export class User extends ClientObjectBase implements IUser {
   }
 
   public async kick(reason: string) {
-    return this.client.Command.kick(this.Name, reason);
+    return this.client.commands.kick(this.Name, reason);
   }
   public async ban(reason: string, time?: string) {
-    return this.client.Command.ban(this.Name, reason, time);
+    return this.client.commands.ban(this.Name, reason, time);
   }
   public async mute(reason: string, time?: string) {
-    return this.client.Command.mute(this.Name, reason, time);
+    return this.client.commands.mute(this.Name, reason, time);
   }
   public async unban(reason: string) {
-    return this.client.Command.unban(this.Name, reason);
+    return this.client.commands.unban(this.Name, reason);
   }
   public async unmute(reason: string) {
-    return this.client.Command.unmute(this.Name, reason);
+    return this.client.commands.unmute(this.Name, reason);
   }
   public async warn(
     text: string,
@@ -40,7 +40,7 @@ export class User extends ClientObjectBase implements IUser {
     addToMail = false,
     windowHeader = ""
   ) {
-    return this.client.Command.warn(
+    return this.client.commands.warn(
       this.Name,
       text,
       size,
@@ -50,7 +50,7 @@ export class User extends ClientObjectBase implements IUser {
     );
   }
   public async whisper(text: string, usernameOverride?: string) {
-    return this.client.Chat.sendChat(
+    return this.client.chat.sendChat(
       this.Name,
       usernameOverride ?? this.client.serverVirtualPlayerName,
       text

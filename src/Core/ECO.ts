@@ -45,20 +45,20 @@ type EcoClientOptions = {
 export default class ECO {
   public serverVirtualPlayerName: string;
   public HttpClient: HttpClient;
-  public Admin = new AdminController(this);
-  public Chat = new ChatController(this);
-  public Command = new CommandController(this);
-  public DataExport = new DataExportController(this);
-  public Election = new ElectionController(this);
-  public Law = new LawController(this);
-  public Log = new LogController(this);
-  public Map = new MapController(this);
-  public Plugins = new PluginsController(this);
-  public ProfilingResults = new ProfilingResultsController(this);
-  public Root = new RootController(this);
-  public Stats = new StatsController(this);
-  public Users = new UsersController(this);
-  public WorldLayer = new WorldLayerController(this);
+  public admin = new AdminController(this);
+  public chat = new ChatController(this);
+  public commands = new CommandController(this);
+  public dataExport = new DataExportController(this);
+  public elections = new ElectionController(this);
+  public laws = new LawController(this);
+  public logs = new LogController(this);
+  public maps = new MapController(this);
+  public plugins = new PluginsController(this);
+  public profilingResults = new ProfilingResultsController(this);
+  public root = new RootController(this);
+  public stats = new StatsController(this);
+  public users = new UsersController(this);
+  public worldLayers = new WorldLayerController(this);
   public server_info!: ServerInfo;
   public isReady: Promise<void>;
   constructor(options: EcoClientOptions) {
@@ -70,7 +70,7 @@ export default class ECO {
     });
     this.isReady = new Promise(
       (async (res: (value: void | PromiseLike<void>) => void) => {
-        this.Root.info().then((info) => {
+        this.root.info().then((info) => {
           this.server_info = info;
 
           //Finished

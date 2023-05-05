@@ -95,7 +95,7 @@ export class ServerInfo extends ClientObjectBase implements IServerInfo {
   }
 
   public async update(): Promise<ServerInfo> {
-    const $b = await this.client.Root.rawinfo();
+    const $b = await this.client.root.rawinfo();
     this._updateFields($b);
     return this;
   }
