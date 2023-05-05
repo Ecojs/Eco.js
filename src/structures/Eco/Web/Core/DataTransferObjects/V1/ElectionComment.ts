@@ -28,4 +28,7 @@ export class ElectionComment
     this.Map = new Map(this.client, $b.Map);
     this.Timestamp = $b.Timestamp;
   }
+  get timestampDate() {
+    return this.client.convertDurationToDate(this.Timestamp);
+  }
 }

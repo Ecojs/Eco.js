@@ -4,7 +4,7 @@ import { ClientObjectBase } from "../../../../../ClientObjectBase";
 export interface IProfilingResult {
   Name?: string;
   Size: number;
-  CreatedAt?: string;
+  CreatedAt?: number;
 }
 
 export class ProfilingResult
@@ -13,11 +13,14 @@ export class ProfilingResult
 {
   public Name?: string;
   public Size: number;
-  public CreatedAt?: string;
+  public CreatedAt?: number;
   constructor(client: ECO, $b: IProfilingResult = {} as IProfilingResult) {
     super(client);
     this.Name = $b.Name;
     this.Size = $b.Size;
     this.CreatedAt = $b.CreatedAt;
+  }
+  get createdAtDate() {
+    return this.client.convertDurationToDate(this.CreatedAt ?? 0);
   }
 }

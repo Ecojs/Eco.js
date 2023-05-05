@@ -87,4 +87,10 @@ export class GameServerElection
     this.State = $b.State;
     this.Creator = $b.Creator;
   }
+  get timeStartDate() {
+    return this.client.convertDurationToDate(this.TimeStart);
+  }
+  get timeEndDate() {
+    return this.client.convertDurationToDate(this.TimeEnd);
+  }
 }

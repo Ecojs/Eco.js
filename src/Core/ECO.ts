@@ -61,6 +61,7 @@ export default class ECO {
   public worldLayers = new WorldLayerController(this);
   public server_info!: ServerInfo;
   public isReady: Promise<void>;
+  private _startDate: Date = new Date(0);
   constructor(options: EcoClientOptions) {
     this.serverVirtualPlayerName =
       options.serverVirtualPlayerName ?? "[Server]";
@@ -72,11 +73,26 @@ export default class ECO {
       (async (res: (value: void | PromiseLike<void>) => void) => {
         this.root.info().then((info) => {
           this.server_info = info;
-
+          Object.defineProperty(this, "_startDate", {
+            enumerable: false,
+            value: new Date(Date.now() - info.TimeSinceStart * 1000),
+          });
           //Finished
           res();
         });
       }).bind(this)
     );
+  }
+  /**
+   * Time Utility Function
+   */
+  public convertDurationToDate(duration: number): Date {
+    return new Date(this._startDate.getTime() + duration * 1000);
+  }
+  /**
+   * Time Utility Function
+   */
+  public convertDateToDuration(date: Date): number {
+    return (date.getTime() - this._startDate.getTime()) * 0.001;
   }
 }
