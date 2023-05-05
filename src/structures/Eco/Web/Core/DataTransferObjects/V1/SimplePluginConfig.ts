@@ -42,19 +42,19 @@ export class SimplePluginConfig
   public async postConfig() {
     if (this.name == null)
       throw new Error("SimplePluginConfig.postConfig must have Name defined.");
-    return this.client.Plugins.setPluginConfig(this.name, this);
+    return this.client.plugins.setPluginConfig(this.name, this);
   }
   /**
    * Use property `config` instead for modifying or accessing values
    */
   public get Config() {
-    return Object.fromEntries(this.config)
+    return Object.fromEntries(this.config);
   }
   /**
    * Use property `properties` instead for modifying or accessing values
    */
   public get ConfigProperties() {
-    return Object.fromEntries(this.properties)
+    return Object.fromEntries(this.properties);
   }
   toJSON() {
     return {
