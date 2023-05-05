@@ -2,7 +2,10 @@ import {
   IPluginInfo,
   PluginInfo,
 } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/PluginInfo";
-import { SimplePluginConfig } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/SimplePluginConfig";
+import {
+  ISimplePluginConfig,
+  SimplePluginConfig,
+} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/SimplePluginConfig";
 import {
   IWebPluginInfo,
   WebPluginInfo,
@@ -16,7 +19,7 @@ export class PluginsController extends ControllerBase {
   }
 
   public async getPluginConfig(name: string) {
-    return this.GET<any, any>(
+    return this.GET<SimplePluginConfig, ISimplePluginConfig>(
       `/api/v1/plugins/${name}`,
       (client, config) => new SimplePluginConfig(client, config, name)
     );
