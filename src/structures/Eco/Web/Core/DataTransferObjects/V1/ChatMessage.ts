@@ -20,4 +20,7 @@ export class ChatMessage extends ClientObjectBase implements IChatMessage {
     this.Receiver = $b.Receiver;
     this.Text = $b.Text;
   }
+  get timestampDate() {
+    return this.client.convertDurationToDate(this.Timestamp);
+  }
 }
