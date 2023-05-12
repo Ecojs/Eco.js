@@ -1,3 +1,4 @@
+import { EventEmitter } from 'stream';
 import { ServerInfo } from "../structures/Eco/Shared/Networking/ServerInfo";
 import {
   AdminController,
@@ -16,6 +17,7 @@ import {
   WorldLayerController,
 } from "./Controllers/index";
 import { HttpClient } from "./HttpClient";
+import { ChatMessage } from '../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage';
 type EcoClientOptions = {
   /**
    * Your API key
@@ -38,6 +40,10 @@ type EcoClientOptions = {
    *
    */
   serverVirtualPlayerName?: string;
+  /**
+   *
+   */
+  chatInterval?: number
 };
 /**
  * API Container
@@ -61,7 +67,12 @@ export default class ECO {
   public worldLayers = new WorldLayerController(this);
   public server_info!: ServerInfo;
   public isReady: Promise<void>;
-  private _startDate: Date = new Date(0);
+  protected _startDate: Date = new Date(0);
+  protected _chatFetched = false
+  protected _chatReadInterval!: NodeJS.Timer;
+  protected _chatReadIntervalMS!: number;
+  protected _messages!: ChatMessage[];
+  public events: EventEmitter = new EventEmitter;
   constructor(options: EcoClientOptions) {
     this.serverVirtualPlayerName =
       options.serverVirtualPlayerName ?? "[Server]";
@@ -69,6 +80,11 @@ export default class ECO {
       base_url: options.base_url,
       api_key: options.api_key,
     });
+    Object.defineProperty(this, "_messages", {
+      enumerable: false,
+      value: [],
+    });
+    this._chatReadIntervalMS = options.chatInterval ?? 8000;
     this.isReady = new Promise(
       (async (res: (value: void | PromiseLike<void>) => void) => {
         this.root.info().then((info) => {
@@ -77,8 +93,10 @@ export default class ECO {
             enumerable: false,
             value: new Date(Date.now() - info.TimeSinceStart * 1000),
           });
+          this.setupChatInterval();
           //Finished
           res();
+          this.events.emit('ready');
         });
       }).bind(this)
     );
@@ -94,5 +112,29 @@ export default class ECO {
    */
   public convertDateToDuration(date: Date): number {
     return (date.getTime() - this._startDate.getTime()) * 0.001;
+  }
+
+  public setupChatInterval() {
+    clearInterval(this._chatReadInterval);
+    this._chatReadInterval = null as unknown as NodeJS.Timer;
+    if (this._chatReadIntervalMS == 0) return;
+    this._chatReadInterval = setInterval(this.checkForNewChats.bind(this), this._chatReadIntervalMS);
+  }
+
+  public async checkForNewChats() {
+    if (!this._chatFetched) {
+      const tmessages = await this.chat.getChat()
+      this._messages.push(...tmessages);
+      this._chatFetched = true
+    }
+    return this.chat.getChat()
+      .then(messagesRaw => {
+        const messages = messagesRaw.slice(this._messages.length)
+        for (const message of messages) {
+          this.events.emit('NEW_MESSAGE', message);
+          this._messages.push(message)
+        }
+        return true
+      }).catch(() => false);
   }
 }
