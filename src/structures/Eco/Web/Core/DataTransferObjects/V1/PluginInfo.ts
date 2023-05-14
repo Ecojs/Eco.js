@@ -17,7 +17,7 @@ export class PluginInfo extends ClientObjectBase implements IPluginInfo {
     this.Status = $b.Status;
     this.HasConfig = $b.HasConfig;
   }
-  public getConfig() {
+  public async getConfig() {
     if (this.HasConfig == false)
       throw new Error(`${this.TypeName} does not have a Config.`);
     if (this.TypeName == null)
