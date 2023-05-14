@@ -110,8 +110,8 @@ export class ChatController extends ControllerBase {
       `/api/v1/chat/sendChat?username=${sendingUser}&message=${channel} ${message}`
     );
   }
-  public _parse(input: string): ChatMessage {
+  public _parse(): ChatMessage {
     throw 'Not Yet Implemented'
   }
-  
+
 }

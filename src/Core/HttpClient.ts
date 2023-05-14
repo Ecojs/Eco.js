@@ -81,7 +81,9 @@ export class HttpClient extends ClientObjectBase {
       let data: unknown;
       try {
         data = await response.json();
-      } catch (error) {}
+      } catch (error) {
+        // Do nothing
+      }
       if (constructor != null)
         try {
           return new (constructor as any)(this.client, data);
