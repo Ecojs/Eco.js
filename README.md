@@ -31,6 +31,14 @@ Documentation can be found [HERE](https://afocommunity.github.io/eco.js/modules.
 
 ```ts
 import { ECO } from 'eco.js';
-//TODO: Write Example
 
+const server = new ECO({base_url: 'url_to_eco_server_webview', api_key: 'myAwesomeAPIAdminToken', serverVirtualPlayerName: '[Server]', serverChatUpdateInterval: 8000});
+
+server.isReady.then(() => {
+  server.on('NEW_MESSAGE', chat_message => {
+    if (chat_message.Receiver == 'General' && chat_message.Text?.contains('!kickme')) {
+      chat_message.senderUser.kick('User ran !kickme');
+    }
+  })
+});
 ```
