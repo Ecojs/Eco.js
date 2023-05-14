@@ -1,5 +1,5 @@
-import ECO from "../../../../Core/ECO";
-import { ClientObjectBase } from "../../../ClientObjectBase";
+import ECO from '../../../../Core/ECO';
+import { ClientObjectBase } from '../../../ClientObjectBase';
 
 export interface IVector3i {
   x: number;

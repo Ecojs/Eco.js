@@ -1,7 +1,7 @@
-import ECO from "../../../Core/ECO";
-import { ClientObjectBase } from "../../ClientObjectBase";
-import { ILocString, LocString } from "../Shared/Localization/LocString";
-import { Graph, IGraph } from "./Graph";
+import ECO from '../../../Core/ECO';
+import { ClientObjectBase } from '../../ClientObjectBase';
+import { ILocString, LocString } from '../Shared/Localization/LocString';
+import { Graph, IGraph } from './Graph';
 
 export interface INamedGraph {
   Category: ILocString;
