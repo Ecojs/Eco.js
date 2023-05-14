@@ -40,10 +40,6 @@ type EcoClientOptions = {
    *
    */
   serverVirtualPlayerName?: string;
-  /**
-   *
-   */
-  chatInterval?: number
 };
 /**
  * API Container
@@ -84,7 +80,7 @@ export default class ECO {
       enumerable: false,
       value: [],
     });
-    this._chatReadIntervalMS = options.chatInterval ?? 8000;
+    this._chatReadIntervalMS = options.serverChatUpdateInterval ?? 8000;
     this.isReady = new Promise(
       (async (res: (value: void | PromiseLike<void>) => void) => {
         this.root.info().then((info) => {
