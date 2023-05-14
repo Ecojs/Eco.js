@@ -1,10 +1,10 @@
 import {
   CommandResult,
   ICommandResult,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/CommandResult";
-import { IExecuteCommand } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/ExecuteCommand";
-import ECO from "../ECO";
-import { ControllerBase } from "./ControllerBase";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/CommandResult';
+import { IExecuteCommand } from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ExecuteCommand';
+import ECO from '../ECO';
+import { ControllerBase } from './ControllerBase';
 
 export class CommandController extends ControllerBase {
   constructor(client: ECO) {
@@ -12,7 +12,7 @@ export class CommandController extends ControllerBase {
   }
   public async exec(Command: string) {
     return this.POST<CommandResult, ICommandResult, IExecuteCommand>(
-      "/api/v1/command/exec",
+      '/api/v1/command/exec',
       { Command },
       CommandResult
     );
@@ -24,40 +24,40 @@ export class CommandController extends ControllerBase {
   public async alert(alert: string) {
     return this.exec(`manage alert ${alert}`);
   }
-  public async kick(user: string, reason = "You have been Kicked.") {
+  public async kick(user: string, reason = 'You have been Kicked.') {
     return this.exec(`kick ${user},${reason}`);
   }
   public async ban(
     user: string,
-    reason = "You have been Banned",
+    reason = 'You have been Banned',
     time?: string
   ) {
-    return this.exec(`ban ${user},${reason}${time ? `,${time}` : ""}`);
+    return this.exec(`ban ${user},${reason}${time ? `,${time}` : ''}`);
   }
-  public async unban(user: string, reason = "You have been Un-muted") {
+  public async unban(user: string, reason = 'You have been Un-muted') {
     return this.exec(`unban ${user},${reason}`);
   }
   public async mute(
     user: string,
-    reason = "You have been Muted.",
+    reason = 'You have been Muted.',
     time?: string
   ) {
-    return this.exec(`mute ${user},${reason}${time ? `,${time}` : ""}`);
+    return this.exec(`mute ${user},${reason}${time ? `,${time}` : ''}`);
   }
-  public async unmute(user: string, reason = "You have been Un-muted") {
+  public async unmute(user: string, reason = 'You have been Un-muted') {
     return this.exec(`unmute ${user},${reason}`);
   }
   public async warn(
     user: string,
     text: string,
     size = 1,
-    type: "notification" | "popup" | "okbox" = "notification",
+    type: 'notification' | 'popup' | 'okbox' = 'notification',
     addToMail = false,
-    windowHeader = ""
+    windowHeader = ''
   ) {
     return this.exec(
-      `warn ${user},${text},${size},${type == "popup"},${
-        type == "okbox"
+      `warn ${user},${text},${size},${type == 'popup'},${
+        type == 'okbox'
       },${addToMail},${windowHeader}`
     );
   }

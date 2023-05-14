@@ -1,6 +1,6 @@
-import ECO from "../../../Core/ECO";
-import { ClientObjectBase } from "../../ClientObjectBase";
-import { Unit } from "./Unit";
+import ECO from '../../../Core/ECO';
+import { ClientObjectBase } from '../../ClientObjectBase';
+import { Unit } from './Unit';
 
 export interface IKey {
   Unit: Unit;

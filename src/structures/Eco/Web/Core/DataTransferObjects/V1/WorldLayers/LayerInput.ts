@@ -1,6 +1,6 @@
-import ECO from "../../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../../ClientObjectBase";
-import { Color, IColor } from "../../../../../Shared/Utils/Color";
+import ECO from '../../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../../ClientObjectBase';
+import { Color, IColor } from '../../../../../Shared/Utils/Color';
 
 export interface ILayerInput {
   Name?: string;

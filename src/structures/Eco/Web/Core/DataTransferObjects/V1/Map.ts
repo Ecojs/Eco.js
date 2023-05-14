@@ -1,6 +1,6 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { IVector3, Vector3 } from "./Vector3";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { IVector3, Vector3 } from './Vector3';
 
 export interface IMap {
   layerSelected?: string;

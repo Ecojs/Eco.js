@@ -1,6 +1,6 @@
-import ECO from "../../../Core/ECO";
-import { ClientObjectBase } from "../../ClientObjectBase";
-import { IKey, Key } from "./Key";
+import ECO from '../../../Core/ECO';
+import { ClientObjectBase } from '../../ClientObjectBase';
+import { IKey, Key } from './Key';
 
 export interface IGraph {
   Keys?: IKey[];
