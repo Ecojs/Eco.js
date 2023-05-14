@@ -23,7 +23,7 @@ yarn add eco.js
 
 # Documentation
 
-Documentation can be found [HERE](https://ecojs.github.io/eco.js/modules.html)
+Documentation can be found [HERE](https://ecojs.github.io/Eco.js)
 
 ![Docs](https://img.shields.io/website?down_color=red&down_message=offline&up_color=brightgreen&up_message=online&url=https%3A%2F%2Fecojs.github.io%2Feco.js%2Fmodules.html)
 
