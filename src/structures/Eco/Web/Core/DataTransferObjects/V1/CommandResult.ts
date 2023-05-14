@@ -1,6 +1,6 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { CommandMessage, ICommandMessage } from "./CommandMessage";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { CommandMessage, ICommandMessage } from './CommandMessage';
 export interface ICommandResult {
   CommandMessages?: ICommandMessage[];
   OriginalCommand?: string;

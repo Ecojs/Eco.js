@@ -1,6 +1,6 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { IMap } from "./Map";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { IMap } from './Map';
 
 export interface ICivicAction {
   ActionOnComplete?: string;
