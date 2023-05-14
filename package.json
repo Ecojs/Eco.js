@@ -35,15 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afocommunity/eco.js.git"
+    "url": "git+https://github.com/ecojs/eco.js.git"
   },
   "bugs": {
-    "url": "https://github.com/afocommunity/eco.js/issues"
+    "url": "https://github.com/ecojs/eco.js/issues"
   },
-  "homepage": "https://github.com/afocommunity/eco.js#readme",
+  "homepage": "https://github.com/ecojs/eco.js#readme",
   "description": "An RCON Interface for ECO",
   "dependencies": {
-    "@afocommunity/eco-rcon": "^0.0.1",
     "@discordjs/collection": "^1.5.1",
     "node-fetch": "^2.6.9"
   }
