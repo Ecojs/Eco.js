@@ -1,6 +1,6 @@
-import ECO from "../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../ClientObjectBase";
-import { Action } from "./Action";
+import ECO from '../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../ClientObjectBase';
+import { Action } from './Action';
 
 export interface IAdminReturnModel {
   Action: Action;
