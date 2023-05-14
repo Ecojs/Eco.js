@@ -7,7 +7,7 @@
 
 Eco.js is a full WebAPI Interface for ECO GameServers.
 
-# Installation (Package Name Pending)
+# Installation
 
 NPM
 
