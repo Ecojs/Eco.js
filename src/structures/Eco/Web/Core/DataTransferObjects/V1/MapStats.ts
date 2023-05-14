@@ -1,6 +1,6 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { IVector3i, Vector3i } from "../../../../Shared/Math/Vector3i";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { IVector3i, Vector3i } from '../../../../Shared/Math/Vector3i';
 
 export interface IMapStats {
   Size: IVector3i;

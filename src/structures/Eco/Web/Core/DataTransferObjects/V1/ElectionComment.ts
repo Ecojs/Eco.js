@@ -1,7 +1,7 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { Graph, IGraph } from "../../../../Stats/Graph";
-import { IMap, Map } from "./Map";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { Graph, IGraph } from '../../../../Stats/Graph';
+import { IMap, Map } from './Map';
 
 export interface IElectionComment {
   Username?: string;
@@ -27,5 +27,8 @@ export class ElectionComment
     this.Graph = new Graph(this.client, $b.Graph);
     this.Map = new Map(this.client, $b.Map);
     this.Timestamp = $b.Timestamp;
+  }
+  get timestampDate() {
+    return this.client.convertDurationToDate(this.Timestamp);
   }
 }

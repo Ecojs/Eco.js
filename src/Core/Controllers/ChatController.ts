@@ -1,10 +1,10 @@
 import {
   IChatMessage,
   ChatMessage,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage";
-import ECO from "../ECO";
-import { ControllerBase } from "./ControllerBase";
-import type { IUser } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/User";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage';
+import ECO from '../ECO';
+import { ControllerBase } from './ControllerBase';
+import type { IUser } from '../../structures/Eco/Web/Core/DataTransferObjects/V1/User';
 
 export class ChatController extends ControllerBase {
   constructor(client: ECO) {
@@ -109,5 +109,8 @@ export class ChatController extends ControllerBase {
     return this.GET(
       `/api/v1/chat/sendChat?username=${sendingUser}&message=${channel} ${message}`
     );
+  }
+  public _parse(): ChatMessage {
+    throw 'Not Yet Implemented';
   }
 }

@@ -1,4 +1,4 @@
 export enum StatType {
-  ContinuousValue = "ContinuousValue",
-  EventValue = "EventValue",
+  ContinuousValue = 'ContinuousValue',
+  EventValue = 'EventValue',
 }
