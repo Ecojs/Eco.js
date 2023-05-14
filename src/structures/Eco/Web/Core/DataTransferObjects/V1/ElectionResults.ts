@@ -1,9 +1,9 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
 import {
   ChoiceResults,
   IChoiceResults,
-} from "../../../../Gameplay/Civics/Elections/ChoiceResults";
+} from '../../../../Gameplay/Civics/Elections/ChoiceResults';
 
 export interface IElectionResults {
   ChoiceRanks?: IChoiceResults[];

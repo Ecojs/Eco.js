@@ -1,11 +1,11 @@
-import { CivicAction, ICivicAction } from "./CivicAction";
-import { ElectionChoice, IElectionChoice } from "./ElectionChoice";
-import { ElectionComment, IElectionComment } from "./ElectionComment";
-import { ElectionResults, IElectionResults } from "./ElectionResults";
-import { ElectionProcess, IElectionProcess } from "./ElectionProcess";
-import { ElectedTitle, IElectedTitle } from "./ElectedTitle";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import ECO from "../../../../../../Core/ECO";
+import { CivicAction, ICivicAction } from './CivicAction';
+import { ElectionChoice, IElectionChoice } from './ElectionChoice';
+import { ElectionComment, IElectionComment } from './ElectionComment';
+import { ElectionResults, IElectionResults } from './ElectionResults';
+import { ElectionProcess, IElectionProcess } from './ElectionProcess';
+import { ElectedTitle, IElectedTitle } from './ElectedTitle';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import ECO from '../../../../../../Core/ECO';
 
 export interface IGameServerElection {
   Choices?: IElectionChoice[];

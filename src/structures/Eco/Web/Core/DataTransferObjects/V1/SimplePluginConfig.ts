@@ -1,9 +1,9 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
 import {
   ISimplePluginConfigProperty,
   SimplePluginConfigProperty,
-} from "./SimplePluginConfigProperty";
+} from './SimplePluginConfigProperty';
 
 export interface ISimplePluginConfig {
   Config: {
@@ -41,7 +41,7 @@ export class SimplePluginConfig
    */
   public async postConfig() {
     if (this.name == null)
-      throw new Error("SimplePluginConfig.postConfig must have Name defined.");
+      throw new Error('SimplePluginConfig.postConfig must have Name defined.');
     return this.client.plugins.setPluginConfig(this.name, this);
   }
   /**
