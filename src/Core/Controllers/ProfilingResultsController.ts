@@ -1,9 +1,9 @@
 import {
   IProfilingResult,
   ProfilingResult,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/ProfilingResult";
-import ECO from "../ECO";
-import { ControllerBase } from "./ControllerBase";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ProfilingResult';
+import ECO from '../ECO';
+import { ControllerBase } from './ControllerBase';
 
 export class ProfilingResultsController extends ControllerBase {
   constructor(client: ECO) {

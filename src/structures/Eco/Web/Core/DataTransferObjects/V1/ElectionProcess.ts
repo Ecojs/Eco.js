@@ -1,9 +1,9 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
 import {
   ILocString,
   LocString,
-} from "../../../../Shared/Localization/LocString";
+} from '../../../../Shared/Localization/LocString';
 
 export interface IElectionProcess {
   Table?: ILocString[];
