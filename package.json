@@ -41,7 +41,7 @@
     "url": "https://github.com/ecojs/eco.js/issues"
   },
   "homepage": "https://github.com/ecojs/eco.js#readme",
-  "description": "An RCON Interface for ECO",
+  "description": "A programatic Interface for ECO game servers",
   "dependencies": {
     "@discordjs/collection": "^1.5.1",
     "node-fetch": "^2.6.9"
