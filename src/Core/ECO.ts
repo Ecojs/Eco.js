@@ -68,7 +68,7 @@ export default class ECO {
   protected _chatReadInterval!: NodeJS.Timer;
   protected _chatReadIntervalMS!: number;
   protected _messages!: ChatMessage[];
-  public events: EventEmitter = new EventEmitter;
+  public _events!: EventEmitter
   constructor(options: EcoClientOptions) {
     this.serverVirtualPlayerName =
       options.serverVirtualPlayerName ?? "[Server]";
@@ -76,9 +76,15 @@ export default class ECO {
       base_url: options.base_url,
       api_key: options.api_key,
     });
-    Object.defineProperty(this, "_messages", {
-      enumerable: false,
-      value: [],
+    Object.defineProperties(this, {
+      "_events": {
+        enumerable: false,
+        value: new EventEmitter
+      },
+      "_messages": {
+        enumerable: false,
+        value: [],
+      }
     });
     this._chatReadIntervalMS = options.serverChatUpdateInterval ?? 8000;
     this.isReady = new Promise(
@@ -92,7 +98,7 @@ export default class ECO {
           this.setupChatInterval();
           //Finished
           res();
-          this.events.emit('ready');
+          this._events.emit('ready');
         });
       }).bind(this)
     );
@@ -127,10 +133,17 @@ export default class ECO {
       .then(messagesRaw => {
         const messages = messagesRaw.slice(this._messages.length)
         for (const message of messages) {
-          this.events.emit('NEW_MESSAGE', message);
+          this._events.emit('NEW_MESSAGE', message);
           this._messages.push(message)
         }
         return true
       }).catch(() => false);
+  }
+  public on(event: 'NEW_MESSAGE', cb: (message: ChatMessage) => void): EventEmitter
+  public on(event: Parameters<EventEmitter['on']>[0], cb: Parameters<EventEmitter['on']>[1]): EventEmitter {
+    return this._events.on(event, cb);
+  }
+  public removeListener(event: Parameters<EventEmitter['removeListener']>[0], cb: Parameters<EventEmitter['removeListener']>[1]): EventEmitter {
+    return this._events.removeListener(event, cb);
   }
 }
