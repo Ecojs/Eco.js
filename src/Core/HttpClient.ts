@@ -66,7 +66,7 @@ export class HttpClient extends ClientObjectBase {
     const url = join(this.BASE_URL, endpoint);
     const response = await fetch(url, init);
     if (this.debug) {
-      console.info(method, url, body);
+      console.info(method, this.api_key != null ? url.replace(this.api_key, '[REDACTED]') : url, body);
       console.info(response.status);
       console.info(response.headers);
     }
