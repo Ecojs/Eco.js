@@ -24,7 +24,7 @@
     "eslint": "^8.43.0",
     "prettier": "^2.8.8",
     "typedoc": "^0.24.8",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.6",
     "@types/node-fetch": "^2.6.3"
   },
   "engines": {
