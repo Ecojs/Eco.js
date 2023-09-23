@@ -21,7 +21,7 @@
     "@types/node": "^20.6.2",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.49.0",
     "prettier": "^2.8.8",
     "typedoc": "^0.24.8",
     "typescript": "^5.0.4",
@@ -44,6 +44,6 @@
   "description": "A programatic Interface for ECO game servers",
   "dependencies": {
     "@discordjs/collection": "^1.5.1",
-    "node-fetch": "^2.6.9"
+    "node-fetch": "^3.3.2"
   }
 }
