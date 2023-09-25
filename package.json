@@ -43,7 +43,7 @@
   "homepage": "https://github.com/ecojs/eco.js#readme",
   "description": "A programatic Interface for ECO game servers",
   "dependencies": {
-    "@discordjs/collection": "^1.5.1",
+    "@discordjs/collection": "^1.5.3",
     "node-fetch": "^3.3.2"
   }
 }
