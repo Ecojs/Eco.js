@@ -1,6 +1,6 @@
 {
   "name": "eco.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "type": "module",
@@ -18,14 +18,14 @@
   "author": "bombitmanbomb",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.6.3",
-    "@types/node-fetch": "^2.6.3",
-    "@typescript-eslint/eslint-plugin": "^5.60.0",
-    "@typescript-eslint/parser": "^5.60.0",
-    "eslint": "^8.49.0",
-    "prettier": "^2.8.8",
-    "typedoc": "^0.24.8",
-    "typescript": "^5.2.2"
+    "@types/node": "20.6.3",
+    "@types/node-fetch": "2.6.3",
+    "@typescript-eslint/eslint-plugin": "5.60.0",
+    "@typescript-eslint/parser": "5.60.0",
+    "eslint": "8.49.0",
+    "prettier": "2.8.8",
+    "typescript": "5.3.3",
+    "typedoc": "0.25.4"
   },
   "engines": {
     "node": ">=16"
@@ -43,7 +43,7 @@
   "homepage": "https://github.com/ecojs/eco.js#readme",
   "description": "A programatic Interface for ECO game servers",
   "dependencies": {
-    "@discordjs/collection": "^1.5.1",
-    "node-fetch": "^3.3.2"
+    "@discordjs/collection": "1.5.1",
+    "node-fetch": "3.3.2"
   }
 }

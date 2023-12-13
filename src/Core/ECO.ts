@@ -65,7 +65,7 @@ export default class ECO {
   public isReady: Promise<void>;
   protected _startDate: Date = new Date(0);
   protected _chatFetched = false;
-  protected _chatReadInterval!: NodeJS.Timer;
+  protected _chatReadInterval!: NodeJS.Timeout;
   protected _chatReadIntervalMS!: number;
   protected _messages!: ChatMessage[];
   public _events!: EventEmitter;
@@ -118,7 +118,7 @@ export default class ECO {
 
   public setupChatInterval() {
     clearInterval(this._chatReadInterval);
-    this._chatReadInterval = null as unknown as NodeJS.Timer;
+    this._chatReadInterval = null as unknown as NodeJS.Timeout;
     if (this._chatReadIntervalMS == 0) return;
     this._chatReadInterval = setInterval(
       this.checkForNewChats.bind(this),
