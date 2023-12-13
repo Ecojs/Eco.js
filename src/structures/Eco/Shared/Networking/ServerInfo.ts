@@ -1,7 +1,7 @@
-import ECO from '../../../../Core/ECO';
-import { ClientObjectBase } from '../../../ClientObjectBase';
-import { ServerCategory } from '../States/ServerCategory';
-import { SkillSpecializationSetting } from './SkillSpecializationSetting';
+import ECO from "../../../../Core/ECO";
+import { ClientObjectBase } from "../../../ClientObjectBase";
+import { ServerCategory } from "../States/ServerCategory";
+import { SkillSpecializationSetting } from "./SkillSpecializationSetting";
 
 export interface IServerInfo {
   Id: string;

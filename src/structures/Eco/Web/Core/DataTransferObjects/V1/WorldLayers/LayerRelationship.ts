@@ -1,6 +1,6 @@
-import ECO from '../../../../../../../Core/ECO';
-import { ClientObjectBase } from '../../../../../../ClientObjectBase';
-import { ILayerInput, LayerInput } from './LayerInput';
+import ECO from "../../../../../../../Core/ECO";
+import { ClientObjectBase } from "../../../../../../ClientObjectBase";
+import { ILayerInput, LayerInput } from "./LayerInput";
 
 export interface ILayerRelationship {
   Name?: string;

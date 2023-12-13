@@ -1,4 +1,4 @@
 export enum Action {
-  Success = 'Success',
-  Fail = 'Fail',
+  Success = "Success",
+  Fail = "Fail",
 }

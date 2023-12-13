@@ -1,6 +1,6 @@
-import ECO from '../../../../../../../Core/ECO';
-import { ClientObjectBase } from '../../../../../../ClientObjectBase';
-import { IWorldLayer, WorldLayer } from './WorldLayer';
+import ECO from "../../../../../../../Core/ECO";
+import { ClientObjectBase } from "../../../../../../ClientObjectBase";
+import { IWorldLayer, WorldLayer } from "./WorldLayer";
 
 export interface IWorldLayerGroup {
   Category?: string;

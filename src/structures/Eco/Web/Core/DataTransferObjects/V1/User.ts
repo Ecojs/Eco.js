@@ -1,5 +1,5 @@
-import ECO from '../../../../../../Core/ECO';
-import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import ECO from "../../../../../../Core/ECO";
+import { ClientObjectBase } from "../../../../../ClientObjectBase";
 
 export interface IUser {
   Name: string;
@@ -13,9 +13,9 @@ export class User extends ClientObjectBase implements IUser {
   public SteamId: string;
   constructor(client: ECO, $b: IUser = {} as IUser) {
     super(client);
-    this.Name = $b.Name ?? '';
-    this.SlgId = $b.SlgId ?? '';
-    this.SteamId = $b.SteamId ?? '';
+    this.Name = $b.Name ?? "";
+    this.SlgId = $b.SlgId ?? "";
+    this.SteamId = $b.SteamId ?? "";
   }
 
   public async kick(reason: string) {
@@ -36,9 +36,9 @@ export class User extends ClientObjectBase implements IUser {
   public async warn(
     text: string,
     size = 1,
-    type: 'notification' | 'popup' | 'okbox' = 'notification',
+    type: "notification" | "popup" | "okbox" = "notification",
     addToMail = false,
-    windowHeader = ''
+    windowHeader = ""
   ) {
     return this.client.commands.warn(
       this.Name,

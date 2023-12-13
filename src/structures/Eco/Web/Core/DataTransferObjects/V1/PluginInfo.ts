@@ -1,5 +1,5 @@
-import ECO from '../../../../../../Core/ECO';
-import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import ECO from "../../../../../../Core/ECO";
+import { ClientObjectBase } from "../../../../../ClientObjectBase";
 
 export interface IPluginInfo {
   TypeName?: string;
@@ -21,7 +21,7 @@ export class PluginInfo extends ClientObjectBase implements IPluginInfo {
     if (this.HasConfig == false)
       throw new Error(`${this.TypeName} does not have a Config.`);
     if (this.TypeName == null)
-      throw new Error('TypeName cannot be null to fetch the config.');
+      throw new Error("TypeName cannot be null to fetch the config.");
     return this.client.plugins.getPluginConfig(this.TypeName as string);
   }
 }

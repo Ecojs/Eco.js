@@ -1,7 +1,7 @@
-import ECO from '../../../../../../Core/ECO';
-import { ClientObjectBase } from '../../../../../ClientObjectBase';
-import { Graph, IGraph } from '../../../../Stats/Graph';
-import { IMap, Map } from './Map';
+import ECO from "../../../../../../Core/ECO";
+import { ClientObjectBase } from "../../../../../ClientObjectBase";
+import { Graph, IGraph } from "../../../../Stats/Graph";
+import { IMap, Map } from "./Map";
 
 export interface IElectionComment {
   Username?: string;

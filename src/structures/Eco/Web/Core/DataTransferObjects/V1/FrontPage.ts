@@ -1,10 +1,10 @@
-import ECO from '../../../../../../Core/ECO';
-import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import ECO from "../../../../../../Core/ECO";
+import { ClientObjectBase } from "../../../../../ClientObjectBase";
 import {
   IServerInfo,
   ServerInfo,
-} from '../../../../Shared/Networking/ServerInfo';
-import { INamedGraph, NamedGraph } from '../../../../Stats/NamedGraph';
+} from "../../../../Shared/Networking/ServerInfo";
+import { INamedGraph, NamedGraph } from "../../../../Stats/NamedGraph";
 
 export interface IFrontPage {
   Info: IServerInfo;
