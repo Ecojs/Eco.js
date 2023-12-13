@@ -1,7 +1,7 @@
-import ECO from '../../../../Core/ECO';
-import { ClientObjectBase } from '../../../ClientObjectBase';
-import { Direction } from './Direction';
-import { IVector3i, Vector3i } from './Vector3i';
+import ECO from "../../../../Core/ECO";
+import { ClientObjectBase } from "../../../ClientObjectBase";
+import { Direction } from "./Direction";
+import { IVector3i, Vector3i } from "./Vector3i";
 
 export interface IRay {
   Pos: IVector3i;

@@ -1,6 +1,6 @@
-import ECO from '../../../Core/ECO';
-import { ClientObjectBase } from '../../ClientObjectBase';
-import { IStatInfo, StatInfo } from './StatInfo';
+import ECO from "../../../Core/ECO";
+import { ClientObjectBase } from "../../ClientObjectBase";
+import { IStatInfo, StatInfo } from "./StatInfo";
 
 export interface IStatCategory {
   Name?: string;

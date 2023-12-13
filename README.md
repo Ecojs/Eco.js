@@ -1,3 +1,4 @@
+# V10 Compatible!
 
 # ECO API Interface
 
@@ -30,15 +31,23 @@ Documentation can be found [HERE](https://ecojs.github.io/Eco.js)
 # Usage
 
 ```ts
-import { ECO } from 'eco.js';
+import { ECO } from "eco.js";
 
-const server = new ECO({base_url: 'url_to_eco_server_webview', api_key: 'myAwesomeAPIAdminToken', serverVirtualPlayerName: '[Server]', serverChatUpdateInterval: 8000});
+const server = new ECO({
+  base_url: "https://127.0.0.1",
+  api_key: "myAwesomeAPIAdminToken", // Admin Token **REQUIRED** for full features
+  serverVirtualPlayerName: "[Server]", // Name of the Bot when Messaging users
+  serverChatUpdateInterval: 5000, // Polling Interval for new messages, in Milliseconds
+});
 
 server.isReady.then(() => {
-  server.on('NEW_MESSAGE', chat_message => {
-    if (chat_message.Receiver == 'General' && chat_message.Text?.contains('!kickme')) {
-      chat_message.senderUser.kick('User ran !kickme');
+  server.on("NEW_MESSAGE", (chat_message) => {
+    if (
+      chat_message.Receiver == "General" &&
+      chat_message.Text?.startsWith("!kickme")
+    ) {
+      chat_message.senderUser.kick("User ran !kickme");
     }
-  })
+  });
 });
 ```
