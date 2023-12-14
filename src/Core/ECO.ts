@@ -1,5 +1,5 @@
-import { EventEmitter } from "stream";
-import { ServerInfo } from "../structures/Eco/Shared/Networking/ServerInfo";
+import { EventEmitter } from 'stream';
+import { ServerInfo } from '../structures/Eco/Shared/Networking/ServerInfo';
 import {
   AdminController,
   ChatController,
@@ -15,16 +15,18 @@ import {
   StatsController,
   UsersController,
   WorldLayerController,
-} from "./Controllers/index";
-import { HttpClient } from "./HttpClient";
-import { ChatMessage } from "../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage";
+} from './Controllers/index';
+import { HttpClient } from './HttpClient';
+import { ChatMessage } from '../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage';
 type EcoClientOptions = {
   /**
    * Your API key
+   * Will read ECO_API_KEY from the env if not set
    */
   api_key?: string;
   /**
    * Your Eco Server Address + port
+   * Will read ECO_BASE_URL from the env if not set
    * @example 'http://127.0.0.1:3001'
    */
   base_url?: string;
@@ -69,12 +71,12 @@ export default class ECO {
   protected _chatReadIntervalMS!: number;
   protected _messages!: ChatMessage[];
   public _events!: EventEmitter;
-  constructor(options: EcoClientOptions) {
+  constructor(options: EcoClientOptions = {} as EcoClientOptions) {
     this.serverVirtualPlayerName =
-      options.serverVirtualPlayerName ?? "[Server]";
+      options.serverVirtualPlayerName ?? '[Server]';
     this.HttpClient = new HttpClient(this, {
-      base_url: options.base_url,
-      api_key: options.api_key,
+      base_url: options.base_url ?? process.env.ECO_BASE_URL,
+      api_key: options.api_key ?? process.env.ECO_API_KEY,
     });
     Object.defineProperties(this, {
       _events: {
@@ -91,14 +93,14 @@ export default class ECO {
       (async (res: (value: void | PromiseLike<void>) => void) => {
         this.root.info().then((info) => {
           this.server_info = info;
-          Object.defineProperty(this, "_startDate", {
+          Object.defineProperty(this, '_startDate', {
             enumerable: false,
             value: new Date(Date.now() - info.TimeSinceStart * 1000),
           });
           this.setupChatInterval();
           //Finished
           res();
-          this._events.emit("ready");
+          this._events.emit('ready');
         });
       }).bind(this)
     );
@@ -137,7 +139,7 @@ export default class ECO {
       .then((messagesRaw) => {
         const messages = messagesRaw.slice(this._messages.length);
         for (const message of messages) {
-          this._events.emit("NEW_MESSAGE", message);
+          this._events.emit('NEW_MESSAGE', message);
           this._messages.push(message);
         }
         return true;
@@ -145,18 +147,18 @@ export default class ECO {
       .catch(() => false);
   }
   public on(
-    event: "NEW_MESSAGE",
+    event: 'NEW_MESSAGE',
     cb: (message: ChatMessage) => void
   ): EventEmitter;
   public on(
-    event: Parameters<EventEmitter["on"]>[0],
-    cb: Parameters<EventEmitter["on"]>[1]
+    event: Parameters<EventEmitter['on']>[0],
+    cb: Parameters<EventEmitter['on']>[1]
   ): EventEmitter {
     return this._events.on(event, cb);
   }
   public removeListener(
-    event: Parameters<EventEmitter["removeListener"]>[0],
-    cb: Parameters<EventEmitter["removeListener"]>[1]
+    event: Parameters<EventEmitter['removeListener']>[0],
+    cb: Parameters<EventEmitter['removeListener']>[1]
   ): EventEmitter {
     return this._events.removeListener(event, cb);
   }

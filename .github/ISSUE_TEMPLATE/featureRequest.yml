@@ -1,7 +1,7 @@
 name: Feature Request / Suggestion
 description: Create a report to help us improve ECO.js
-title: "[Feature]: "
-labels: ["enhancement"]
+title: '[Feature]: '
+labels: ['enhancement']
 body:
   - type: markdown
     attributes:

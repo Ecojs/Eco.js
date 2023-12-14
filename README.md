@@ -31,22 +31,22 @@ Documentation can be found [HERE](https://ecojs.github.io/Eco.js)
 # Usage
 
 ```ts
-import { ECO } from "eco.js";
+import { ECO } from 'eco.js';
 
 const server = new ECO({
-  base_url: "https://127.0.0.1",
-  api_key: "myAwesomeAPIAdminToken", // Admin Token **REQUIRED** for full features
-  serverVirtualPlayerName: "[Server]", // Name of the Bot when Messaging users
+  base_url: 'https://127.0.0.1',
+  api_key: 'myAwesomeAPIAdminToken', // Admin Token **REQUIRED** for full features
+  serverVirtualPlayerName: '[Server]', // Name of the Bot when Messaging users
   serverChatUpdateInterval: 5000, // Polling Interval for new messages, in Milliseconds
 });
 
 server.isReady.then(() => {
-  server.on("NEW_MESSAGE", (chat_message) => {
+  server.on('NEW_MESSAGE', (chat_message) => {
     if (
-      chat_message.Receiver == "General" &&
-      chat_message.Text?.startsWith("!kickme")
+      chat_message.Receiver == 'General' &&
+      chat_message.Text?.startsWith('!kickme')
     ) {
-      chat_message.senderUser.kick("User ran !kickme");
+      chat_message.senderUser.kick('User ran !kickme');
     }
   });
 });

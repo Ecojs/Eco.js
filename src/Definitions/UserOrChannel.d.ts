@@ -1,0 +1,1 @@
+type UserOrChannel = UserName | ChannelName;

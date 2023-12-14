@@ -7,3 +7,6 @@ tsconfig.json
 .gitattributes
 .gitignore
 .npmignore
+test/
+vitest.config.ts
+.env

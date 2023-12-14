@@ -1,10 +1,14 @@
 import {
   IChatMessage,
   ChatMessage,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage";
-import ECO from "../ECO";
-import { ControllerBase } from "./ControllerBase";
-import type { IUser } from "../../structures/Eco/Web/Core/DataTransferObjects/V1/User";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage';
+import ECO from '../ECO';
+import { ControllerBase } from './ControllerBase';
+import type { IUser } from '../../structures/Eco/Web/Core/DataTransferObjects/V1/User';
+import {
+  IPostResult,
+  PostResult,
+} from '../../structures/Eco/Shared/Utils/PostResult';
 
 export class ChatController extends ControllerBase {
   constructor(client: ECO) {
@@ -89,28 +93,31 @@ export class ChatController extends ControllerBase {
    * Send a message to a Channel or User
    */
   public sendChat(
-    receiver: string | IUser,
-    sender: string | IUser,
-    text: string
-  ): Promise<unknown>;
+    receiver: UserOrChannel | IUser,
+    text: string,
+    sender?: string | IUser
+  ): Promise<PostResult>;
   public sendChat(
-    receiver: string | IUser,
-    sender?: string | IUser,
-    text?: string
-  ): Promise<unknown> {
+    receiver: UserOrChannel | IUser,
+    text?: string,
+    sender?: string | IUser
+  ): Promise<PostResult> {
     const channel = encodeURIComponent(
       (receiver as IUser)?.Name ?? (receiver as string)
     );
     const sendingUser = encodeURIComponent(
-      (sender as IUser)?.Name ?? (sender as string)
+      (sender as IUser)?.Name ??
+        (sender as string) ??
+        this.client.serverVirtualPlayerName
     );
     const message = encodeURIComponent(text as string);
 
-    return this.GET(
-      `/api/v1/chat/sendChat?username=${sendingUser}&message=${channel} ${message}`
+    return this.GET<PostResult, IPostResult>(
+      `/api/v1/chat/sendChat?username=${sendingUser}&message=${channel} ${message}`,
+      (_, $b) => new PostResult($b)
     );
   }
   public _parse(): ChatMessage {
-    throw "Not Yet Implemented";
+    throw 'Not Yet Implemented';
   }
 }

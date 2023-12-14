@@ -1,6 +1,6 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { District, IDistrict } from "./District";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { District, IDistrict } from './District';
 export interface IDistrictMap {
   DistrictMetadata?: IDistrict[];
   DistrictMap?: string;
