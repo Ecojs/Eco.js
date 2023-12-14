@@ -1,6 +1,6 @@
-import ECO from "../../../../../../Core/ECO";
-import { ClientObjectBase } from "../../../../../ClientObjectBase";
-import { User } from "./User";
+import ECO from '../../../../../../Core/ECO';
+import { ClientObjectBase } from '../../../../../ClientObjectBase';
+import { User } from './User';
 
 export interface IChatMessage {
   readonly Timestamp: number;
@@ -34,7 +34,7 @@ export class ChatMessage extends ClientObjectBase implements IChatMessage {
     try {
       return `[${this.timestampDate
         .toISOString()
-        .replace(/[TZ]/g, " ")
+        .replace(/[TZ]/g, ' ')
         .trim()}] ${this.Sender}: ${this.Text}`;
     } catch (error) {
       return `${this.Sender}: ${this.Text}`;

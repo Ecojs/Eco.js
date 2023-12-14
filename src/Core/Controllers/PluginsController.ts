@@ -1,17 +1,17 @@
 import {
   IPluginInfo,
   PluginInfo,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/PluginInfo";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/PluginInfo';
 import {
   ISimplePluginConfig,
   SimplePluginConfig,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/SimplePluginConfig";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/SimplePluginConfig';
 import {
   IWebPluginInfo,
   WebPluginInfo,
-} from "../../structures/Eco/Web/Core/DataTransferObjects/V1/WebPluginInfo";
-import ECO from "../ECO";
-import { ControllerBase } from "./ControllerBase";
+} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/WebPluginInfo';
+import ECO from '../ECO';
+import { ControllerBase } from './ControllerBase';
 
 export class PluginsController extends ControllerBase {
   constructor(client: ECO) {

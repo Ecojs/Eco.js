@@ -1,1 +1,1 @@
-export * as web from "./Web/Core/DataTransferObjects/V1";
+export * as web from './Web/Core/DataTransferObjects/V1';

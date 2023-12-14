@@ -8,6 +8,7 @@
   "scripts": {
     "build": "npx tsc",
     "lint": "npx eslint ./src/ --fix",
+    "test": "vitest",
     "document": "npx typedoc ./src/index.ts --includeVersion"
   },
   "keywords": [
@@ -22,10 +23,13 @@
     "@types/node-fetch": "2.6.3",
     "@typescript-eslint/eslint-plugin": "5.60.0",
     "@typescript-eslint/parser": "5.60.0",
+    "dotenv": "^16.3.1",
     "eslint": "8.49.0",
     "prettier": "2.8.8",
+    "ts-node": "^10.9.2",
+    "typedoc": "0.25.4",
     "typescript": "5.3.3",
-    "typedoc": "0.25.4"
+    "vitest": "^1.0.4"
   },
   "engines": {
     "node": ">=16"
