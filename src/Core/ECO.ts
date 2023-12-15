@@ -1,5 +1,5 @@
-import { EventEmitter } from 'stream';
-import { ServerInfo } from '../structures/Eco/Shared/Networking/ServerInfo';
+import { EventEmitter } from 'node:events';
+import { ServerInfo } from './Shared/Networking/ServerInfo.js';
 import {
   AdminController,
   ChatController,
@@ -15,9 +15,9 @@ import {
   StatsController,
   UsersController,
   WorldLayerController,
-} from './Controllers/index';
-import { HttpClient } from './HttpClient';
-import { ChatMessage } from '../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage';
+} from './Controllers/index.js';
+import { HttpClient } from './HttpClient.js';
+import { ChatMessage } from './DataTransferObjects/V1/ChatMessage.js';
 type EcoClientOptions = {
   /**
    * Your API key

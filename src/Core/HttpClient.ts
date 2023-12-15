@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { join } from 'path';
-import ECO from './ECO';
-import { ClientObjectBase } from '../structures/ClientObjectBase';
+import ECO from './ECO.js';
+import { ClientObjectBase } from './ClientObjectBase.js';
 
 export type HttpClientOptions = {
   base_url?: string;

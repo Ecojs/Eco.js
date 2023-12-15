@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config.js';
 import 'dotenv/config';
 export default defineConfig({
   test: {

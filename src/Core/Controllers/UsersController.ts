@@ -1,9 +1,6 @@
-import {
-  IUser,
-  User,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/User';
-import ECO from '../ECO';
-import { ControllerBase } from './ControllerBase';
+import { IUser, User } from '../DataTransferObjects/V1/User.js';
+import ECO from '../ECO.js';
+import { ControllerBase } from './ControllerBase.js';
 
 export class UsersController extends ControllerBase {
   constructor(client: ECO) {

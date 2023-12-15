@@ -1,15 +1,9 @@
-import { ControllerBase } from './ControllerBase';
-import ECO from '../ECO';
-import {
-  IMapStats,
-  MapStats,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/MapStats';
-import {
-  Entity,
-  IEntity,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/Entity';
-import { IVector3i, Vector3i } from '../../structures/Eco/Shared/Math/Vector3i';
-import { IVector2i } from '../../structures/Eco/Shared/Math/Vector2i';
+import { ControllerBase } from './ControllerBase.js';
+import ECO from '../ECO.js';
+import { IMapStats, MapStats } from '../DataTransferObjects/V1/MapStats.js';
+import { Entity, IEntity } from '../DataTransferObjects/V1/Entity.js';
+import { IVector3i, Vector3i } from '../Shared/Math/Vector3i.js';
+import { IVector2i } from '../Shared/Math/Vector2i.js';
 
 type MapJson = {
   WaterLevel: number;

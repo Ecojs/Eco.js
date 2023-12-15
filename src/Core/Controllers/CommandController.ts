@@ -1,10 +1,10 @@
 import {
   CommandResult,
   ICommandResult,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/CommandResult';
-import { IExecuteCommand } from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ExecuteCommand';
-import ECO from '../ECO';
-import { ControllerBase } from './ControllerBase';
+} from '../DataTransferObjects/V1/CommandResult.js';
+import { IExecuteCommand } from '../DataTransferObjects/V1/ExecuteCommand.js';
+import ECO from '../ECO.js';
+import { ControllerBase } from './ControllerBase.js';
 
 export class CommandController extends ControllerBase {
   constructor(client: ECO) {

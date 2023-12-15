@@ -1,14 +1,11 @@
 import {
   IChatMessage,
   ChatMessage,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ChatMessage';
-import ECO from '../ECO';
-import { ControllerBase } from './ControllerBase';
-import type { IUser } from '../../structures/Eco/Web/Core/DataTransferObjects/V1/User';
-import {
-  IPostResult,
-  PostResult,
-} from '../../structures/Eco/Shared/Utils/PostResult';
+} from '../DataTransferObjects/V1/ChatMessage.js';
+import ECO from '../ECO.js';
+import { ControllerBase } from './ControllerBase.js';
+import type { IUser } from '../DataTransferObjects/V1/User.js';
+import { IPostResult, PostResult } from '../Utils/PostResult.js';
 
 export class ChatController extends ControllerBase {
   constructor(client: ECO) {
