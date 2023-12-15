@@ -1,5 +1,5 @@
-import { ClientObjectBase } from '../../structures/ClientObjectBase';
-import ECO from '../ECO';
+import { ClientObjectBase } from '../ClientObjectBase.js';
+import ECO from '../ECO.js';
 
 export class ControllerBase extends ClientObjectBase {
   constructor(client: ECO) {

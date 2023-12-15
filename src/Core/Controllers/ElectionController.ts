@@ -1,22 +1,22 @@
-import { ProposableState } from '../../structures/Eco/Shared/Items/ProposableState';
+import { ProposableState } from '../Shared/Items/ProposableState.js';
 import {
   ElectedTitle,
   IElectedTitle,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ElectedTitle';
+} from '../DataTransferObjects/V1/ElectedTitle.js';
 import {
   ElectionComment,
   IElectionComment,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/ElectionComment';
+} from '../DataTransferObjects/V1/ElectionComment.js';
 import {
   GameServerElection,
   IGameServerElection,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/GameServerElection';
+} from '../DataTransferObjects/V1/GameServerElection.js';
 import {
   IRunoffVote,
   RunoffVote,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/RunoffVote';
-import ECO from '../ECO';
-import { ControllerBase } from './ControllerBase';
+} from '../DataTransferObjects/V1/RunoffVote.js';
+import ECO from '../ECO.js';
+import { ControllerBase } from './ControllerBase.js';
 
 export class ElectionController extends ControllerBase {
   constructor(client: ECO) {

@@ -1,13 +1,7 @@
-import {
-  ServerInfo,
-  IServerInfo,
-} from '../../structures/Eco/Shared/Networking/ServerInfo';
-import {
-  FrontPage,
-  IFrontPage,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/FrontPage';
-import ECO from '../ECO';
-import { ControllerBase } from './ControllerBase';
+import { ServerInfo, IServerInfo } from '../Shared/Networking/ServerInfo.js';
+import { FrontPage, IFrontPage } from '../DataTransferObjects/V1/FrontPage.js';
+import ECO from '../ECO.js';
+import { ControllerBase } from './ControllerBase.js';
 
 export class RootController extends ControllerBase {
   constructor(client: ECO) {

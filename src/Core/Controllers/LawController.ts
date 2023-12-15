@@ -1,19 +1,25 @@
-import { ProposableState } from '../../structures/Eco/Shared/Items/ProposableState';
+import { ProposableState } from '../Shared/Items/ProposableState.js';
 import {
   DistrictMap,
   IDistrictMap,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/DistrictMap';
-import {
-  ILaw,
-  Law,
-} from '../../structures/Eco/Web/Core/DataTransferObjects/V1/Law';
-import ECO from '../ECO';
-import { ControllerBase } from './ControllerBase';
+} from '../DataTransferObjects/V1/DistrictMap.js';
+import { ILaw, Law } from '../DataTransferObjects/V1/Law.js';
+import ECO from '../ECO.js';
+import { ControllerBase } from './ControllerBase.js';
 export class LawController extends ControllerBase {
   constructor(client: ECO) {
     super(client);
   }
-  public async getLaws(states?: ProposableState[]) {
+  /**
+   * Returns all laws currently present in the game.
+   */
+  public async getLaws(): Promise<Law[]>;
+  /**
+   * Returns all laws currently present in the game in the specified states, active by default.
+   * @param states Game State to filter.
+   */
+  public async getLaws(states: ProposableState[]): Promise<Law[]>;
+  public async getLaws(states?: ProposableState[]): Promise<Law[]> {
     return this.GET<Law[], ILaw[]>(
       `/api/v1/laws${
         states != null && states?.length > 0
@@ -23,6 +29,10 @@ export class LawController extends ControllerBase {
       (client, laws) => laws.map((law) => new Law(client, law))
     );
   }
+  /**
+   * Returns the law with the specified id
+   * @param id Law ID
+   */
   public async getLaw(id: number) {
     return this.GET<Law, ILaw>(`/api/v1/laws/${id}`, Law);
   }
