@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsup",
     "lint": "npx eslint ./src/ --fix && prettier ./src --write",
-    "document": "npx typedoc ./src/index.ts --includeVersion --plugin typedoc-material-theme"
+    "document": "npx typedoc ./src/index.ts --includeVersion @mxssfd/typedoc-theme --theme my-theme"
   },
   "keywords": [
     "RCON",
@@ -25,6 +25,7 @@
   "author": "bombitmanbomb",
   "license": "MIT",
   "devDependencies": {
+    "@mxssfd/typedoc-theme": "^1.1.3",
     "@types/node": "20.10.5",
     "@types/node-fetch": "2.6.3",
     "@typescript-eslint/eslint-plugin": "6.15.0",
