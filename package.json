@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsup",
     "lint": "npx eslint ./src/ --fix && prettier ./src --write",
-    "document": "npx typedoc ./src/index.ts --includeVersion --plugin typedoc-material-theme --themeColor '#cb9820'"
+    "document": "npx typedoc ./src/index.ts --includeVersion --plugin typedoc-material-theme"
   },
   "keywords": [
     "RCON",
