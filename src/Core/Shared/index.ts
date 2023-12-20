@@ -1,1 +1,1 @@
-export * as web from '../DataTransferObjects/V1/index.js';
+export * from '../DataTransferObjects/V1/index.js';
