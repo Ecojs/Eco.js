@@ -24,7 +24,7 @@ export class SimplePluginConfigProperty
   Kind: string;
   constructor(
     client: ECO,
-    $b: ISimplePluginConfigProperty = {} as ISimplePluginConfigProperty
+    $b: ISimplePluginConfigProperty = {} as ISimplePluginConfigProperty,
   ) {
     super(client);
     this.$type = $b.$type;

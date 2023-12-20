@@ -14,7 +14,7 @@ export class ProfilingResultsController extends ControllerBase {
     return this.GET<ProfilingResult[], IProfilingResult[]>(
       `/api/v1/profiling-results`,
       (client, results) =>
-        results.map((result) => new ProfilingResult(client, result))
+        results.map((result) => new ProfilingResult(client, result)),
     );
   }
 

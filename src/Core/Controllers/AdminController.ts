@@ -11,7 +11,7 @@ export class AdminController extends ControllerBase {
   public async setServername(name: string) {
     return this.POST<string, string, void>(
       `/api/v1/admin/set/servername?name=${name}`,
-      undefined
+      undefined,
     );
   }
   public async getAccess() {
@@ -21,17 +21,17 @@ export class AdminController extends ControllerBase {
   public async setAccess(visibility: 'hidden'): Promise<string>;
   public async setAccess(
     visibility: 'private',
-    password: string
+    password: string,
   ): Promise<string>;
   public async setAccess(
     visibility: 'public' | 'private' | 'hidden',
-    password?: string
+    password?: string,
   ): Promise<string> {
     let query = `?value=${visibility}`;
     if (visibility == 'private') query += `&password=${password}`;
     return this.POST<string, string, void>(
       `/api/v1/admin/set/access${query}`,
-      undefined
+      undefined,
     );
   }
   // public async export() {

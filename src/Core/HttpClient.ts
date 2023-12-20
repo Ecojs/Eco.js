@@ -26,7 +26,7 @@ export class HttpClient extends ClientObjectBase {
     endpoint: string,
     constructor?:
       | (new (client: ECO, data: V) => T)
-      | ((client: ECO, data: any) => T)
+      | ((client: ECO, data: any) => T),
   ) {
     return this.fetch<T, V>('GET', endpoint, constructor);
   }
@@ -35,13 +35,13 @@ export class HttpClient extends ClientObjectBase {
     body: B,
     constructor?:
       | (new (client: ECO, data: V) => T)
-      | ((client: ECO, data: any) => T)
+      | ((client: ECO, data: any) => T),
   ) {
     return this.fetch<T, V>(
       'POST',
       endpoint,
       constructor,
-      JSON.stringify(body)
+      JSON.stringify(body),
     );
   }
   public async fetch<T, V>(
@@ -50,7 +50,7 @@ export class HttpClient extends ClientObjectBase {
     constructor?:
       | (new (client: ECO, data: V) => T)
       | ((client: ECO, data: V) => T),
-    body?: any
+    body?: any,
   ): Promise<T> {
     const headers = this.api_key ? { 'X-API-Key': this.api_key } : undefined;
 
@@ -69,7 +69,7 @@ export class HttpClient extends ClientObjectBase {
       console.info(
         method,
         this.api_key != null ? url.replace(this.api_key, '[REDACTED]') : url,
-        body
+        body,
       );
       console.info(response.status);
       console.info(response.headers);

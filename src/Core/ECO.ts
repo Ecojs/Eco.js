@@ -102,7 +102,7 @@ export default class ECO {
           res();
           this._events.emit('ready');
         });
-      }).bind(this)
+      }).bind(this),
     );
   }
   /**
@@ -124,7 +124,7 @@ export default class ECO {
     if (this._chatReadIntervalMS == 0) return;
     this._chatReadInterval = setInterval(
       this.checkForNewChats.bind(this),
-      this._chatReadIntervalMS
+      this._chatReadIntervalMS,
     );
   }
 
@@ -148,17 +148,17 @@ export default class ECO {
   }
   public on(
     event: 'NEW_MESSAGE',
-    cb: (message: ChatMessage) => void
+    cb: (message: ChatMessage) => void,
   ): EventEmitter;
   public on(
     event: Parameters<EventEmitter['on']>[0],
-    cb: Parameters<EventEmitter['on']>[1]
+    cb: Parameters<EventEmitter['on']>[1],
   ): EventEmitter {
     return this._events.on(event, cb);
   }
   public removeListener(
     event: Parameters<EventEmitter['removeListener']>[0],
-    cb: Parameters<EventEmitter['removeListener']>[1]
+    cb: Parameters<EventEmitter['removeListener']>[1],
   ): EventEmitter {
     return this._events.removeListener(event, cb);
   }
