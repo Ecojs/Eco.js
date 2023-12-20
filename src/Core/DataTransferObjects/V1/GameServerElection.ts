@@ -57,7 +57,7 @@ export class GameServerElection
   public Creator?: string;
   constructor(
     client: ECO,
-    $b: IGameServerElection = {} as IGameServerElection
+    $b: IGameServerElection = {} as IGameServerElection,
   ) {
     super(client);
     this.Choices = $b.Choices
@@ -78,7 +78,7 @@ export class GameServerElection
     this.ElectionProcess = new ElectionProcess(this.client, $b.ElectionProcess);
     this.PositionForWinner = new ElectedTitle(
       this.client,
-      $b.PositionForWinner
+      $b.PositionForWinner,
     );
     this.BooleanElection = $b.BooleanElection;
     this.Id = $b.Id;

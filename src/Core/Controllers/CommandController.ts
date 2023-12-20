@@ -14,7 +14,7 @@ export class CommandController extends ControllerBase {
     return this.POST<CommandResult, ICommandResult, IExecuteCommand>(
       '/api/v1/command/exec',
       { Command },
-      CommandResult
+      CommandResult,
     );
   }
 
@@ -30,7 +30,7 @@ export class CommandController extends ControllerBase {
   public async ban(
     user: string,
     reason = 'You have been Banned',
-    time?: string
+    time?: string,
   ) {
     return this.exec(`ban ${user},${reason}${time ? `,${time}` : ''}`);
   }
@@ -40,7 +40,7 @@ export class CommandController extends ControllerBase {
   public async mute(
     user: string,
     reason = 'You have been Muted.',
-    time?: string
+    time?: string,
   ) {
     return this.exec(`mute ${user},${reason}${time ? `,${time}` : ''}`);
   }
@@ -53,12 +53,12 @@ export class CommandController extends ControllerBase {
     size = 1,
     type: 'notification' | 'popup' | 'okbox' = 'notification',
     addToMail = false,
-    windowHeader = ''
+    windowHeader = '',
   ) {
     return this.exec(
       `warn ${user},${text},${size},${type == 'popup'},${
         type == 'okbox'
-      },${addToMail},${windowHeader}`
+      },${addToMail},${windowHeader}`,
     );
   }
 }

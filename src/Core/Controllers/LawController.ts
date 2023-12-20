@@ -26,7 +26,7 @@ export class LawController extends ControllerBase {
           ? `/byStates/${states.join('|')}`
           : ''
       }`,
-      (client, laws) => laws.map((law) => new Law(client, law))
+      (client, laws) => laws.map((law) => new Law(client, law)),
     );
   }
   /**
@@ -39,7 +39,7 @@ export class LawController extends ControllerBase {
   public async getDistrictMap(mapName: string) {
     return this.GET<DistrictMap, IDistrictMap>(
       `/api/v1/districtmap/${mapName}`,
-      DistrictMap
+      DistrictMap,
     );
   }
 }

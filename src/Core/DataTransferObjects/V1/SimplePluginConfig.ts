@@ -24,7 +24,7 @@ export class SimplePluginConfig
   constructor(
     client: ECO,
     $b: ISimplePluginConfig = {} as ISimplePluginConfig,
-    name: string
+    name: string,
   ) {
     super(client);
     this.name = name;
@@ -33,7 +33,7 @@ export class SimplePluginConfig
       Object.entries($b.ConfigProperties).map(([key, property]) => [
         key,
         new SimplePluginConfigProperty(this.client, property),
-      ])
+      ]),
     );
   }
   /**
@@ -42,7 +42,7 @@ export class SimplePluginConfig
   public async postConfig() {
     if (this.name == null)
       throw new Error(
-        'SimplePluginConfig.postConfig must have Name defined to execute.'
+        'SimplePluginConfig.postConfig must have Name defined to execute.',
       );
     return this.client.plugins.setPluginConfig(this.name, this);
   }

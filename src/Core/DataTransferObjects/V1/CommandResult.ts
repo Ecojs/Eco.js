@@ -14,7 +14,7 @@ export class CommandResult extends ClientObjectBase implements ICommandResult {
     super(client);
     this.CommandMessages = $b.CommandMessages
       ? $b.CommandMessages.map(
-          (value) => new CommandMessage(this.client, value)
+          (value) => new CommandMessage(this.client, value),
         )
       : [];
     this.OriginalCommand = $b.OriginalCommand;

@@ -6,6 +6,7 @@ import ECO from '../ECO.js';
 import { ControllerBase } from './ControllerBase.js';
 import type { IUser } from '../DataTransferObjects/V1/User.js';
 import { IPostResult, PostResult } from '../Utils/PostResult.js';
+import { UserOrChannel } from '../../Definitions/UserOrChanne.js';
 
 export class ChatController extends ControllerBase {
   constructor(client: ECO) {
@@ -21,7 +22,7 @@ export class ChatController extends ControllerBase {
   public getChat(startDay = 0, endDay = -1) {
     return this.GET<ChatMessage[], IChatMessage[]>(
       `/api/v1/chat?startDay=${startDay}&endDay=${endDay}`,
-      (c, d) => d.map((v) => new ChatMessage(c, v))
+      (c, d) => d.map((v) => new ChatMessage(c, v)),
     );
   }
   /**
@@ -35,9 +36,9 @@ export class ChatController extends ControllerBase {
   public getChatByTag(tag: string, startDay = 0, endDay = -1) {
     return this.GET<ChatMessage[], IChatMessage[]>(
       `/api/v1/chat?tag=${encodeURIComponent(
-        tag
+        tag,
       )}&startDay=${startDay}&endDay=${endDay}`,
-      (c, d) => d.map((v) => new ChatMessage(c, v))
+      (c, d) => d.map((v) => new ChatMessage(c, v)),
     );
   }
   /**
@@ -51,9 +52,9 @@ export class ChatController extends ControllerBase {
   public getChatSentBy(user: string | IUser, startDay = 0, endDay = -1) {
     return this.GET<ChatMessage[], IChatMessage[]>(
       `/api/v1/chat?tag=${encodeURIComponent(
-        (user as IUser)?.Name ?? (user as string)
+        (user as IUser)?.Name ?? (user as string),
       )}&startDay=${startDay}&endDay=${endDay}`,
-      (c, d) => d.map((v) => new ChatMessage(c, v))
+      (c, d) => d.map((v) => new ChatMessage(c, v)),
     );
   }
   /**
@@ -68,7 +69,7 @@ export class ChatController extends ControllerBase {
     return this.POST<ChatMessage[], IChatMessage[], IChatMessage>(
       `/api/v1/chat/next?numNextMessages=${numNextMessages}`,
       message,
-      (c, d) => d.map((v) => new ChatMessage(c, v))
+      (c, d) => d.map((v) => new ChatMessage(c, v)),
     );
   }
   /**
@@ -83,7 +84,7 @@ export class ChatController extends ControllerBase {
     return this.POST<ChatMessage[], IChatMessage[], IChatMessage>(
       `/api/v1/chat/previous?numNextMessages=${numPreviousMessages}`,
       message,
-      (c, d) => d.map((v) => new ChatMessage(c, v))
+      (c, d) => d.map((v) => new ChatMessage(c, v)),
     );
   }
   /**
@@ -92,26 +93,26 @@ export class ChatController extends ControllerBase {
   public sendChat(
     receiver: UserOrChannel | IUser,
     text: string,
-    sender?: string | IUser
+    sender?: string | IUser,
   ): Promise<PostResult>;
   public sendChat(
     receiver: UserOrChannel | IUser,
     text?: string,
-    sender?: string | IUser
+    sender?: string | IUser,
   ): Promise<PostResult> {
     const channel = encodeURIComponent(
-      (receiver as IUser)?.Name ?? (receiver as string)
+      (receiver as IUser)?.Name ?? (receiver as string),
     );
     const sendingUser = encodeURIComponent(
       (sender as IUser)?.Name ??
         (sender as string) ??
-        this.client.serverVirtualPlayerName
+        this.client.serverVirtualPlayerName,
     );
     const message = encodeURIComponent(text as string);
 
     return this.GET<PostResult, IPostResult>(
       `/api/v1/chat/sendChat?username=${sendingUser}&message=${channel} ${message}`,
-      (_, $b) => new PostResult($b)
+      (_, $b) => new PostResult($b),
     );
   }
   public _parse(): ChatMessage {

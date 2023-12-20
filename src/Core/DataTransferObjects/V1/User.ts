@@ -1,5 +1,6 @@
 import ECO from '../../ECO.js';
 import { ClientObjectBase } from '../../ClientObjectBase.js';
+import { UserOrChannel } from '../../../Definitions/UserOrChanne.js';
 
 export interface IUser {
   Name: string;
@@ -38,7 +39,7 @@ export class User extends ClientObjectBase implements IUser {
     size = 1,
     type: 'notification' | 'popup' | 'okbox' = 'notification',
     addToMail = false,
-    windowHeader = ''
+    windowHeader = '',
   ) {
     return this.client.commands.warn(
       this.Name,
@@ -46,14 +47,14 @@ export class User extends ClientObjectBase implements IUser {
       size,
       type,
       addToMail,
-      windowHeader
+      windowHeader,
     );
   }
   public async whisper(text: string, usernameOverride?: string) {
     return this.client.chat.sendChat(
       this.Name as UserOrChannel,
       usernameOverride ?? this.client.serverVirtualPlayerName,
-      text
+      text,
     );
   }
 }

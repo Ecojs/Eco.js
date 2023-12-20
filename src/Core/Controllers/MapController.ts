@@ -31,7 +31,7 @@ export class MapController extends ControllerBase {
   public async getEntities(entityTypes = ['Player']) {
     return this.GET<Entity[], IEntity[]>(
       `/api/v1/map/entities?entityTypes?=${entityTypes}`,
-      (c: ECO, d: IEntity[]) => d.map((v) => new Entity(c, v))
+      (c: ECO, d: IEntity[]) => d.map((v) => new Entity(c, v)),
     );
   }
   public async getWorldDimension() {

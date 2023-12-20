@@ -9,7 +9,7 @@ export class UsersController extends ControllerBase {
   public async getUsers(hoursPlayedGte = 0) {
     return this.GET<User[], IUser[]>(
       `/api/v1/users?hoursPlayedGte=${hoursPlayedGte}`,
-      (client, data) => data.map((v) => new User(client, v))
+      (client, data) => data.map((v) => new User(client, v)),
     );
   }
 }

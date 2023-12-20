@@ -9,7 +9,7 @@ export class ControllerBase extends ClientObjectBase {
     path: string,
     constructor?:
       | (new (client: ECO, data: ReturnDTO) => ReturnType)
-      | ((client: ECO, data: ReturnDTO) => ReturnType)
+      | ((client: ECO, data: ReturnDTO) => ReturnType),
   ): Promise<ReturnType> {
     return this.client.HttpClient.GET(path, constructor);
   }
@@ -18,7 +18,7 @@ export class ControllerBase extends ClientObjectBase {
     body: Body,
     constructor?:
       | (new (client: ECO, data: ReturnDTO) => ReturnType)
-      | ((client: ECO, data: ReturnDTO) => ReturnType)
+      | ((client: ECO, data: ReturnDTO) => ReturnType),
   ): Promise<ReturnType> {
     return this.client.HttpClient.POST(path, body, constructor);
   }
