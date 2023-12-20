@@ -1,4 +1,4 @@
-export { BasePlugin } from './Plugins/BasePlugin.js';
+export * as Plugins from './Plugins/index.js';
 export { default as ECO } from './Core/ECO.js';
 export * as Controllers from './Core/Controllers/index.js';
 export * as DTO from './Core/Shared/index.js';
