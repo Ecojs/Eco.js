@@ -10,3 +10,5 @@ tsconfig.json
 test/
 vitest.config.ts
 .env
+tsup.config.ts
+.prettierrc
