@@ -13,6 +13,9 @@ import {
 import ECO from '../ECO.js';
 import { ControllerBase } from './ControllerBase.js';
 
+/**
+ * The API controller in charge of the plugins and config.
+ */
 export class PluginsController extends ControllerBase {
   constructor(client: ECO) {
     super(client);
@@ -20,7 +23,7 @@ export class PluginsController extends ControllerBase {
 
   public async getPluginConfig(name: string) {
     return this.GET<SimplePluginConfig, ISimplePluginConfig>(
-      `/api/v1/plugins/${name}`,
+      `/api/v1/plugins/config/${name}`,
       (client, config) => new SimplePluginConfig(client, config, name),
     );
   }
@@ -35,7 +38,7 @@ export class PluginsController extends ControllerBase {
   public async setPluginConfig(name: string, config: any): Promise<boolean> {
     return (
       (await this.POST<any, any, any>(
-        `/api/v1/plugins/${name}`,
+        `/api/v1/plugins/config/${name}`,
         config instanceof SimplePluginConfig ? config.Config : config,
       )) == 200
     );
