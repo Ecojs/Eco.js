@@ -32,7 +32,7 @@ Documentation can be found [HERE](https://ecojs.github.io/Eco.js)
 
 ```ts
 import { ECO } from 'eco.js';
-// const { ECO } = require('eco.js');
+// const { ECO } = await import('eco.js');
 const server = new ECO({
   base_url: 'https://127.0.0.1',
   api_key: 'myAwesomeAPIAdminToken', // Admin Token **REQUIRED** for full features
