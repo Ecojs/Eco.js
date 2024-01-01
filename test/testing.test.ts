@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from 'vitest.js';
-import { ECO } from '../src/.js';
+import { describe, expect, it, vi } from 'vitest';
+import { ECO } from '../src/index.js';
 describe('Posts a message', () => {
   it('Posts a message', async () => {
     const server = new ECO();
