@@ -60,6 +60,14 @@ export const voffset = (
   text: string,
   spacing: `${'' | '-'}${number}${'px' | 'em'}`,
 ) => `<voffset=${spacing}>${text}</voffset>`;
+export const icon = (
+  icon: string,
+  remove_background?: boolean,
+  color?: string,
+) =>
+  `<icon name="${icon}"${remove_background ? ` type="nobg"` : ''}${
+    color ? ` iconcolor="${color}"` : ''
+  }>`;
 /**
  * Make the given text Underlined
  */
