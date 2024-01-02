@@ -1,7 +1,8 @@
 import { ControlInput } from '../../Definitions/ControlInput';
 
 export const alpha = (text: string, opacity: number) =>
-  `<alpha=${typeof opacity === 'number' ? `#${opacity.toString(16)}` : opacity
+  `<alpha=${
+    typeof opacity === 'number' ? `#${opacity.toString(16)}` : opacity
   }>${text}</alpha>`;
 /**
  * Make the given text Bold
@@ -18,15 +19,15 @@ export const color = (
   color:
     | `#${string}`
     | (
-      | 'black'
-      | 'blue'
-      | 'green'
-      | 'orange'
-      | 'purple'
-      | 'red'
-      | 'white'
-      | 'yellow'
-    ),
+        | 'black'
+        | 'blue'
+        | 'green'
+        | 'orange'
+        | 'purple'
+        | 'red'
+        | 'white'
+        | 'yellow'
+      ),
 ) => `<color=${color}>${text}</color>`;
 /**
  * cspace allows you to adjust character spacing, either absolute or relative to the original font Asset. You can use pixels or font units.
@@ -64,7 +65,8 @@ export const icon = (
   remove_background?: boolean,
   color?: string,
 ) =>
-  `<icon name="${icon}"${remove_background ? ` type="nobg"` : ''}${color ? ` iconcolor="${color}"` : ''
+  `<icon name="${icon}"${remove_background ? ` type="nobg"` : ''}${
+    color ? ` iconcolor="${color}"` : ''
   }>`;
 /**
  * Make the given text Underlined
