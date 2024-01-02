@@ -51,3 +51,25 @@ server.isReady.then(() => {
   });
 });
 ```
+
+# TextUtils
+
+```ts
+import { TextUtils } from 'eco.js';
+const { color, foldout, table, italic, bold } = TextUtils;
+
+server.chat.sendChat(
+  '#General',
+  `I can also do ${color('Colored Text', '#ffaa00')}, ${italic(
+    bold('Styling'),
+  )} and ${foldout(
+    color('Hoverable Text', '#00ff00'),
+    'With Tables!',
+    table([
+      ['Column 1', 'Column2'],
+      ['Much', 'Wow'],
+    ]),
+  )}`,
+);
+```
+![ColorTextDemo](/.github/assets/color_demo.png)
