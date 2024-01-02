@@ -1,8 +1,7 @@
 import { ControlInput } from '../../Definitions/ControlInput';
 
 export const alpha = (text: string, opacity: number) =>
-  `<alpha=${
-    typeof opacity === 'number' ? `#${opacity.toString(16)}` : opacity
+  `<alpha=${typeof opacity === 'number' ? `#${opacity.toString(16)}` : opacity
   }>${text}</alpha>`;
 /**
  * Make the given text Bold
@@ -19,15 +18,15 @@ export const color = (
   color:
     | `#${string}`
     | (
-        | 'black'
-        | 'blue'
-        | 'green'
-        | 'orange'
-        | 'purple'
-        | 'red'
-        | 'white'
-        | 'yellow'
-      ),
+      | 'black'
+      | 'blue'
+      | 'green'
+      | 'orange'
+      | 'purple'
+      | 'red'
+      | 'white'
+      | 'yellow'
+    ),
 ) => `<color=${color}>${text}</color>`;
 /**
  * cspace allows you to adjust character spacing, either absolute or relative to the original font Asset. You can use pixels or font units.
@@ -65,8 +64,7 @@ export const icon = (
   remove_background?: boolean,
   color?: string,
 ) =>
-  `<icon name="${icon}"${remove_background ? ` type="nobg"` : ''}${
-    color ? ` iconcolor="${color}"` : ''
+  `<icon name="${icon}"${remove_background ? ` type="nobg"` : ''}${color ? ` iconcolor="${color}"` : ''
   }>`;
 /**
  * Make the given text Underlined
@@ -111,7 +109,23 @@ export const noparse = (text: string) => `<noparse>${text}</noparse>`;
  */
 export const foldout = (linktext: string, title: string, body: string) =>
   `<foldout><linktext>${linktext}</linktext><title>${title}</title>${body}</foldout>`;
-
+/**
+ * Create a Table.
+ * Does not work in chat, foldouts only.
+ * @example
+ * TextUtils.table([
+ *  ['column1', 'column2', 'column3'], //Row 1
+ *  ['column1', 'column2', 'column3'], //Row 2
+ *  ['column1', 'column2', 'column3'], //Row 3
+ *  ['column1', 'column2', 'column3']  //Row 4
+ * ])
+ */
+export const table = (table: string[][]) =>
+  `<table>${table.map((row) => {
+    return `<tr>${row.map((column) => {
+      return `<th>${column}</th>`;
+    })}</tr>`;
+  })}</table>`;
 export const hotkey = (control: ControlInput) => `<hotkey name="${control}">`;
 
 //? Shorthands
