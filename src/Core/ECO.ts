@@ -139,7 +139,7 @@ export default class ECO {
       .then((messagesRaw) => {
         const messages = messagesRaw.slice(this._messages.length);
         for (const message of messages) {
-          this._events.emit('NEW_MESSAGE', message);
+          this._events.emit('CHAT_MESSAGE', message);
           this._messages.push(message);
         }
         return true;
@@ -147,7 +147,7 @@ export default class ECO {
       .catch(() => false);
   }
   public on(
-    event: 'NEW_MESSAGE',
+    event: 'CHAT_MESSAGE',
     cb: (message: ChatMessage) => void,
   ): EventEmitter;
   public on(

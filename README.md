@@ -84,7 +84,7 @@ const server = new ECO({
 });
 
 server.isReady.then(() => {
-  server.on('NEW_MESSAGE', (chat_message) => {
+  server.on('CHAT_MESSAGE', (chat_message) => {
     if (
       chat_message.Receiver == 'General' &&
       chat_message.Text?.startsWith('!kickme')
