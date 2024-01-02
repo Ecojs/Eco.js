@@ -4,7 +4,6 @@
 
 <!-- TOC -->
 
-- [V10 Compatible!](#v10-compatible)
 - [ECO API Interface](#eco-api-interface)
 - [Installation](#installation)
 - [Setup](#setup)
@@ -13,14 +12,11 @@
   - [Env](#env)
   - [Disabling Chat Hooks](#disabling-chat-hooks)
 - [Documentation](#documentation)
+- [Support Discord](#support-discord)
 - [Usage](#usage)
 - [TextUtils](#textutils)
 
 <!-- /TOC -->
-
-# V10 Compatible!
-
-Eco.js has been updated to support Eco v10
 
 # ECO API Interface
 
@@ -70,6 +66,11 @@ To disable chat polling, pass `serverChatUpdateInterval: 0` to the Startup perms
 Documentation can be found [HERE](https://ecojs.github.io/Eco.js)
 
 ![Docs](https://img.shields.io/website?down_color=red&down_message=offline&up_color=brightgreen&up_message=online&url=https%3A%2F%2Fecojs.github.io%2FEco.js%2Fmodules.html)
+
+
+# Support Discord
+
+[![https://discord.gg/uzeWjVTPSQ](https://discordapp.com/api/guilds/1145379886966525994/embed.png)](https://discord.gg/uzeWjVTPSQ)
 
 # Usage
 
