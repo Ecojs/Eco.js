@@ -8,9 +8,6 @@
 - [Installation](#installation)
 - [Setup](#setup)
   - [Eco.js](#ecojs)
-  - [Server Configs - **Important**](#server-configs---important)
-  - [Env](#env)
-  - [Disabling Chat Hooks](#disabling-chat-hooks)
 - [Documentation](#documentation)
 - [Support Discord](#support-discord)
 - [Usage](#usage)
@@ -21,8 +18,8 @@
 # ECO API Interface
 
 Eco.js is a full WebAPI Interface for ECO GameServers for remote automated management and bots.
-
-Just want an RCON library and not the full toolset? Check out [@eco.js/rcon](https://github.com/Ecojs/Rcon).
+> [!TIP]
+> Just want an RCON library and not the full toolset? Check out [@eco.js/rcon](https://github.com/Ecojs/Rcon).
 
 # Installation
 
@@ -33,33 +30,24 @@ npm install eco.js
 # Setup
 
 ## Eco.js
-
-> `base_url` - The `WebServerUrl` (or IP) & `WebServerPort` as defined in `Network.eco` config.
-
-> `api_key` - The `APIAdminAuthToken` as defined in `Users.eco` config.
-
-> `serverVirtualPlayerName` - The name for the Server when using Chat. (_Default_ `[Server]`)
-
-> `serverChatUpdateInterval` - Time (in ms) between checks for new chat messages.
-
-## Server Configs - **Important**
-
-Eco.js **requires** an `APIAdminAuthToken` to make any authenticated calls. A Non-admin or User token can be used for limited read-only access.
-
-You must also enable `AllowDebugCalls` to make use of Chat features.
-
+> [!IMPORTANT]
+> Eco.js **requires** an **`APIAdminAuthToken`** to make any authenticated calls. A Non-admin or User token can be used for limited read-only access.
+> You must also enable **`AllowDebugCalls`** to make use of Chat features.
 Both of these can be found in the `Users.eco` config file on your server.
 
-## Env
+- `base_url` - The `WebServerUrl` (or IP) & `WebServerPort` as defined in `Network.eco` config.
+- `api_key` - The `APIAdminAuthToken` as defined in `Users.eco` config.
+- `serverVirtualPlayerName` - The name for the Server when using Chat. (_Default_ `[Server]`)
+- `serverChatUpdateInterval` - Time (in ms) between checks for new chat messages.
 
-If certain startup options are omitted from `new ECO({});`, the library will read from the following ENV variables:
+> [!NOTE]
+> If `base_url` or `api_key` options are omitted from the `EcoJSConfig` object, the library will read that variable from the following ENV variables:
+>
+> - `ECO_BASE_URL`
+> - `ECO_API_KEY`
 
-- `ECO_BASE_URL`
-- `ECO_API_KEY`
-
-## Disabling Chat Hooks
-
-To disable chat polling, pass `serverChatUpdateInterval: 0` to the Startup perms.
+> [!TIP]
+> To disable chat polling, pass `serverChatUpdateInterval: 0` to the Startup perms.
 
 # Documentation
 
