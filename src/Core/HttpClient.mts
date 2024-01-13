@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { join } from 'path';
 import ECO from './ECO.mjs';
 import { ClientObjectBase } from './ClientObjectBase.mjs';
