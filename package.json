@@ -2,8 +2,8 @@
   "name": "eco.js",
   "version": "1.4.0",
   "type": "module",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "./lib/index.mjs",
+  "module": "./lib/index.mjs",
   "types": "./types/index.d.ts",
   "access": "public",
   "scripts": {
