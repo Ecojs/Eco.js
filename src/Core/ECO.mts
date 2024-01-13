@@ -1,4 +1,4 @@
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from './Utils/EventEmitter/EventEmitter.mjs';
 import { ServerInfo } from './Shared/Networking/ServerInfo.mjs';
 import {
   AdminController,
