@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "npx eslint ./src/ --fix && prettier ./src --write",
-    "document": "npx typedoc ./src/index.ts --includeVersion",
+    "document": "npx typedoc ./src/index.mts --includeVersion",
     "test": "vitest"
   },
   "keywords": [
