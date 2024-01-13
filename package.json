@@ -21,7 +21,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "20.10.5",
-    "@types/node-fetch": "2.6.10",
     "@typescript-eslint/eslint-plugin": "6.18.0",
     "@typescript-eslint/parser": "6.18.0",
     "dotenv": "16.3.1",
@@ -48,9 +47,5 @@
     "url": "https://github.com/ecojs/eco.js/issues"
   },
   "homepage": "https://github.com/ecojs/eco.js#readme",
-  "description": "A programatic Interface for ECO game servers",
-  "dependencies": {
-    "@discordjs/collection": "1.5.1",
-    "node-fetch": "3.3.2"
-  }
+  "description": "A programatic Interface for ECO game servers"
 }
