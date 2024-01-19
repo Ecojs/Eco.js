@@ -18,6 +18,8 @@ import {
 } from './Controllers/index.mjs';
 import { HttpClient } from './HttpClient.mjs';
 import { ChatMessage } from './DataTransferObjects/V1/ChatMessage.mjs';
+import { BasePlugin } from '../Plugins/BasePlugin.mjs';
+
 type EcoClientOptions = {
   /**
    * Your API key
@@ -46,7 +48,9 @@ type EcoClientOptions = {
 /**
  * API Container
  */
-export default class ECO {
+export default class ECO<
+  Plugins extends { plugins: Record<string, BasePlugin> },
+> {
   public serverVirtualPlayerName: string;
   public HttpClient: HttpClient;
   public admin = new AdminController(this);
@@ -70,6 +74,7 @@ export default class ECO {
   protected _chatReadInterval!: NodeJS.Timeout;
   protected _chatReadIntervalMS!: number;
   protected _messages!: ChatMessage[];
+  public EcoJSPlugins: Plugins['plugins'] = {};
   public _events!: EventEmitter;
   constructor(options: EcoClientOptions = {} as EcoClientOptions) {
     this.serverVirtualPlayerName =
@@ -105,6 +110,22 @@ export default class ECO {
       }).bind(this),
     );
   }
+  public createECOJSPlugin<NewPlugin extends BasePlugin>(
+    pluginClass: NewPlugin,
+  ): NewPlugin {
+    const plugin = new (pluginClass as any)(this) as NewPlugin;
+    const pluginName = this.resolveEcojsPluginName(plugin);
+    Reflect.set(this.EcoJSPlugins, pluginName, plugin);
+    // TODO: Hook Registrations
+    return plugin;
+  }
+
+  protected resolveEcojsPluginName(plugin: BasePlugin): string {
+    return plugin.Name?.trim() !== ''
+      ? plugin.Name
+      : (plugin as any).constuctor.name;
+  }
+
   /**
    * Time Utility Function
    */
