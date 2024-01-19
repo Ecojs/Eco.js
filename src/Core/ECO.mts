@@ -48,9 +48,7 @@ type EcoClientOptions = {
 /**
  * API Container
  */
-export default class ECO<
-  Plugins extends { plugins: Record<string, BasePlugin> },
-> {
+export default class ECO {
   public serverVirtualPlayerName: string;
   public HttpClient: HttpClient;
   public admin = new AdminController(this);
@@ -74,7 +72,7 @@ export default class ECO<
   protected _chatReadInterval!: NodeJS.Timeout;
   protected _chatReadIntervalMS!: number;
   protected _messages!: ChatMessage[];
-  public EcoJSPlugins: Plugins['plugins'] = {};
+  public EcoJSPlugins: Record<string, BasePlugin> = {};
   public _events!: EventEmitter;
   constructor(options: EcoClientOptions = {} as EcoClientOptions) {
     this.serverVirtualPlayerName =
