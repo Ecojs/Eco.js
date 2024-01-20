@@ -79,3 +79,4 @@ tsconfig.tsbuildinfo
 
 lib/
 types/
+!docs/types/
