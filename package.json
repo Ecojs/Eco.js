@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "npx eslint ./src/ --fix && prettier ./src --write",
-    "document": "npx typedoc ./src/index.mts --includeVersion --plugin typedoc-plugin-missing-exports",
+    "document": "npx typedoc ./src/index.mts --includeVersion --plugin typedoc-plugin-missing-exports --excludeExternals true --internalModule INTERNAL",
     "test": "vitest"
   },
   "keywords": [
