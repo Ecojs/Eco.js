@@ -95,6 +95,7 @@ export class EventEmitter {
       evt = prefix ? prefix + event : event;
 
     if (!emitter._events[evt])
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       (emitter._events[evt] = listener), emitter._eventsCount++;
     else if (!emitter._events[evt].fn) emitter._events[evt].push(listener);
     else emitter._events[evt] = [emitter._events[evt], listener];
