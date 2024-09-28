@@ -2,6 +2,8 @@
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ecojs/eco.js) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/ecojs/eco.js)
 
+[Our Discord](https://discord.gg/uzeWjVTPSQ)
+
 <!-- TOC -->
 
 - [ECO API Interface](#eco-api-interface)
