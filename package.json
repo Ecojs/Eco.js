@@ -1,6 +1,6 @@
 {
   "name": "eco.js",
-  "version": "1.6.2",
+  "version": "1.6.2-rc.1",
   "type": "module",
   "main": "./lib/index.mjs",
   "module": "./lib/index.mjs",
