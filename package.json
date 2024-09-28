@@ -27,7 +27,7 @@
     "eslint": "8.57.1",
     "prettier": "3.3.3",
     "ts-node": "10.9.2",
-    "tsup": "8.0.1",
+    "tsup": "8.3.0",
     "typedoc": "0.25.7",
     "typedoc-material-theme": "1.0.2",
     "typedoc-plugin-missing-exports": "^2.2.0",
