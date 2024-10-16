@@ -84,12 +84,14 @@ export class HttpClient extends ClientObjectBase {
       let data: unknown;
       try {
         data = await response.json();
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
-        // Do nothing
+        //Do Nothing
       }
       if (constructor != null)
         try {
           return new (constructor as any)(this.client, data);
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
           return (constructor as any)(this.client, data);
         }

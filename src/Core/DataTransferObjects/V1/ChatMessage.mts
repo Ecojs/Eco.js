@@ -36,7 +36,8 @@ export class ChatMessage extends ClientObjectBase implements IChatMessage {
         .toISOString()
         .replace(/[TZ]/g, ' ')
         .trim()}] #${this.Receiver} ${this.Sender}: ${this.Text}`;
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_error) {
       return `${this.Sender}: ${this.Text}`;
     }
   }
