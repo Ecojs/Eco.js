@@ -5,7 +5,7 @@ export class ControllerBase extends ClientObjectBase {
   constructor(client: ECO) {
     super(client);
   }
-  protected async GET<ReturnType, ReturnDTO>(
+  protected async GET<ReturnType = unknown, ReturnDTO = unknown>(
     path: string,
     constructor?:
       | (new (client: ECO, data: ReturnDTO) => ReturnType)
@@ -13,7 +13,11 @@ export class ControllerBase extends ClientObjectBase {
   ): Promise<ReturnType> {
     return this.client.HttpClient.GET(path, constructor);
   }
-  protected async POST<ReturnType, ReturnDTO, Body>(
+  protected async POST<
+    ReturnType = unknown,
+    ReturnDTO = unknown,
+    Body = Record<PropertyKey, any>,
+  >(
     path: string,
     body: Body,
     constructor?:

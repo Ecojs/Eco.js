@@ -44,7 +44,7 @@ export class ChatController extends ControllerBase {
   /**
    * Return all non-private player chat messages sent by the given user within the given time range
    *
-   * @param {string} user The user name in question.
+   * @param {string | IUser} user The user name in question.
    * @param {number} [startDay=0] The lower bound on the time range. Default is 0.
    * @param {number} [endDay=-1] The upper bound on the time range. Default is now.
    * @memberof ChatController
