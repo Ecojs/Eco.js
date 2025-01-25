@@ -31,7 +31,7 @@
     "ts-node": "10.9.2",
     "tsup": "8.3.5",
     "typedoc": "0.26.10",
-    "typedoc-material-theme": "1.1.0",
+    "typedoc-material-theme": "1.3.0",
     "typedoc-plugin-missing-exports": "^3.0.0",
     "typescript": "5.6.3",
     "vitest": "3.0.4"
